@@ -52,6 +52,29 @@ Le fichier ne contient qu'un seul paquet dans lequel on trouve
 
 flag : password
 
+### Bluetooth - Fichier inconnu
+
+Pour ce challenge, un fichier d'extension bin est téléchargé puis ouvert avec l'outil [WireShark](https://www.wireshark.org/).
+Dans le paquet 9, on trouve les informations utiles (adresse mac et nom du téléphone) 
+
+![image](https://user-images.githubusercontent.com/91114817/193238058-70defad8-71c3-48b4-a748-9878505feeee.png)
+
+La concaténation des deux a ensuite était hachée avec le site (sha1.fr)[https://www.sha1.fr/]
+
+flag : c1d0349c153ed96fe2fadf44e880aef9e69c122b
+
+### IP - Time To Live
+
+Pour ce challenge, un fichier d'extension pcap est téléchargé puis ouvert avec l'outil [WireShark](https://www.wireshark.org/).
+
+![image](https://user-images.githubusercontent.com/91114817/193243055-2f0eadbf-a8c5-4fc5-bebb-ffa6301f6636.png)
+
+Après une succession de ttl qui échouent, on voit que la réponse de l'hôte arrive finalement au paquet 72.
+
+flag : 13
+
+
+
 ## Cryptanalyse
 
 ### 
