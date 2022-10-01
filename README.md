@@ -79,8 +79,22 @@ flag : 13
 
 ### 
 
+
 ## Web - Serveur 
 
-### 
+### HTTP - POST
 
+https://user-images.githubusercontent.com/91114817/193413569-a916fe46-9a57-457d-be91-d41d884c2241.mp4
+
+flag : H7tp_h4s_N0_s3Cr37S_F0r_y0U
+
+### HTTP - Cookies
+
+https://user-images.githubusercontent.com/91114817/193414083-5811a88f-a87d-46e9-9139-97661c833c07.mp4
+
+flag : ml-SYMPA
+
+### HTTP - User-agent
+
+Le challenge avait déjà été utilisé avce l'extension User-Agent Switcher. 
 
