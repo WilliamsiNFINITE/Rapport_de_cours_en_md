@@ -96,5 +96,5 @@ flag : ml-SYMPA
 
 ### HTTP - User-agent
 
-Le challenge avait déjà été utilisé avce l'extension User-Agent Switcher. 
+Le challenge avait déjà été utilisé avec l'extension User-Agent Switcher. 
 
