@@ -93,14 +93,17 @@ fmmft seront sntsdr pmsecq
 ```
 J'ai utilisé le détecteur de code du site [dCode](https://www.dcode.fr/) afin de trouver une correspondance avec un algorithme connu. Il m'a proposé le Chiffre de Trithème. Puisqu'il n'y avait pas de résultat, j'ai essayé avec le chiffrement par décalage. Après avoir utilisé du brut force, j'ai reconnu la célèbre comptine :
 
-"un deux trois 
+```console
+un deux trois 
 j'irai dans les bois
 quatre cinq six
 cueillir des cerises
 sept huit neuf
 dans un panier neuf
 dix onze douze
-elles seront toutes rouges"
+elles seront toutes rouges
+```
+
 
 flag : ujqcsddessxsffes
 
