@@ -77,6 +77,13 @@ flag : 13
 
 ## Cryptanalyse
 
+### Chiffrement par décalage
+
+Pour ce challenge, un fichier d'extension .bin est téléchargé. J'ai ouvert le fichier avec un éditeur de texte et j'ai entré son contenu dans le détecteur de code du site [dCode](https://www.dcode.fr/) qui m'a conduit sur la méthode de [chiffrement par décalage ASCII](https://www.dcode.fr/chiffre-decalage-ascii). J'ai entré le texte copié pour trouver le flag.
+
+flag : Yolaihu
+
+
 ### Substitution monoalphabétique - César
 
 Pour ce challenge, le texte suivant été donné : 
@@ -103,7 +110,6 @@ dans un panier neuf
 dix onze douze
 elles seront toutes rouges
 ```
-
 
 flag : ujqcsddessxsffes
 
