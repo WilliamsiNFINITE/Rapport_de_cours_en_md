@@ -73,12 +73,36 @@ Après une succession de ttl qui échouent, on voit que la réponse de l'hôte a
 
 flag : 13
 
-
+###
 
 ## Cryptanalyse
 
-### 
+### Substitution monoalphabétique - César
 
+Pour ce challenge, le texte suivant été donné : 
+
+```console
+tm bcsv qolfp
+f'dmvd xuhm exl tgak
+hlrkiv sydg hxm
+qiswzzwf qrf oqdueqe
+dpae resd wndo
+liva bu vgtokx sjzk
+hmb rqch fqwbg
+fmmft seront sntsdr pmsecq
+```
+J'ai utilisé le détecteur de code du site [dCode](https://www.dcode.fr/) afin de trouver une correspondance avec un algorithme connu. Il m'a proposé le Chiffre de Trithème. Puisqu'il n'y avait pas de résultat, j'ai essayé avec le chiffrement par décalage. Après avoir utilisé du brut force, j'ai reconnu la célèbre comptine :
+
+"un deux trois 
+j'irai dans les bois
+quatre cinq six
+cueillir des cerises
+sept huit neuf
+dans un panier neuf
+dix onze douze
+elles seront toutes rouges"
+
+flag : ujqcsddessxsffes
 
 ## Web - Serveur 
 
