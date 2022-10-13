@@ -144,6 +144,8 @@ flag : ml-SYMPA
 
 Le challenge avait déjà été utilisé avec l'extension User-Agent Switcher. 
 
+### HTTP - Headers
+
 ## Exercice 1
 
 A défaut d'avoir abouti à un résultat, voici la méthode que j'ai suivi.
