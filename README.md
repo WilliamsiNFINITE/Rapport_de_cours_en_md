@@ -7,6 +7,7 @@ Ce rapport documente la manière dont j'ai réussi à finir les différentes cha
 * [Réseau](#réseaux)
 * [Cryptanalyse](#cryptanalyse)
 * [Web - Serveur](#web---serveur)
+* [Exercice 1](#exercice-1)
 
 ## Réseaux
 
@@ -131,3 +132,23 @@ flag : ml-SYMPA
 
 Le challenge avait déjà été utilisé avec l'extension User-Agent Switcher. 
 
+## Exercice 1
+
+A défaut d'avoir abouti à un résultat, voici la méthode que j'ai suivi.
+
+A l'ouverture, j'ai rapidement regardé si le protocole des différents paquets étaient similaires à des paquets pour lesquels j'avais déjà identifié des informations importantes (http, ftp, etc...). L'ensemble des protocoles sont 'USB'. Dans le paquet 2, j'ai trouvé deux informations sur le type de périphérique qui était utilisé dans cette capture. On travaille avec un modèle [AU9540 Smartcard Reader](https://datasheet.lcsc.com/szlcsc/Alcor-Micro-AU9540_C126997.pdf) de l'emtreprise [Alcor Micro Corp](https://www.alcormicro.com/en/).
+
+Sur la page 4 de la [documentation](https://datasheet.lcsc.com/szlcsc/Alcor-Micro-AU9540_C126997.pdf), on peut voir que le modèle de carte pris en charge doit respecter la norme [ISO 7816](https://en.wikipedia.org/wiki/ISO/IEC_7810). 
+
+Le paquet 4 donne quelque caractéristiques techniques : 
+
+![image](https://user-images.githubusercontent.com/91114817/195524513-1d6c0b8f-9880-4359-8156-014514143e23.png)
+
+
+J'ai ensuite remarqué que les paquets 16 et 28 étaient davantage voluminuex que les autres. J'ai donc décidé de voir ce qu'ils contenaient.
+
+Il semblerait que le paquet 16 corresponde à un transfert de fichiers vidéos.
+
+
+
+## Exercice 2
