@@ -140,15 +140,16 @@ A l'ouverture, j'ai rapidement regardé si le protocole des différents paquets 
 
 Sur la page 4 de la [documentation](https://datasheet.lcsc.com/szlcsc/Alcor-Micro-AU9540_C126997.pdf), on peut voir que le modèle de carte pris en charge doit respecter la norme [ISO 7816](https://en.wikipedia.org/wiki/ISO/IEC_7810). 
 
-Le paquet 4 donne quelque caractéristiques techniques : 
+Le paquet 4 donne quelques caractéristiques techniques : 
 
 ![image](https://user-images.githubusercontent.com/91114817/195524513-1d6c0b8f-9880-4359-8156-014514143e23.png)
 
 
 J'ai ensuite remarqué que les paquets 16 et 28 étaient davantage voluminuex que les autres. J'ai donc décidé de voir ce qu'ils contenaient.
 
-Il semblerait que le paquet 16 corresponde à un transfert de fichiers vidéos.
+Il semblerait que le paquet 16 corresponde à un transfert de fichiers vidéos. Le paquet 18 ne me donne pas beaucoup d'informations intéressantes.
 
-
+Dès le paquet 31, il y a une suite d'échange entre l'appareil host et 1.41.1. 
 
 ## Exercice 2
+
