@@ -74,7 +74,15 @@ Après une succession de ttl qui échouent, on voit que la réponse de l'hôte a
 
 flag : 13
 
-###
+### CISCO - mot de passe
+
+### DNS - transfert de zone
+
+### Ethernet - Transmission altérée
+
+### Wired Equivalent Privacy
+
+### XMPP - Authentification
 
 ## Cryptanalyse
 
@@ -113,6 +121,10 @@ elles seront toutes rouges
 ```
 
 flag : ujqcsddessxsffes
+
+### Hash - SHA-2
+
+### Clair connu - XOR
 
 ## Web - Serveur 
 
@@ -153,3 +165,4 @@ Dès le paquet 31, il y a une suite d'échange entre l'appareil host et 1.41.1.
 
 ## Exercice 2
 
+Aucun flag n'a été trouvé. 
