@@ -1,0 +1,50 @@
+# Nmap 7.70 scan initiated Fri Oct 21 03:22:07 2022 as: nmap -sV -oN scan_3.txt scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.0028s latency).
+Not shown: 996 filtered ports
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http       Apache httpd 2.4.7 ((Ubuntu))
+443/tcp  open  https?
+3128/tcp open  http-proxy Squid http proxy
+8080/tcp open  http-proxy Squid http proxy
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port443-TCP:V=7.70%I=7%D=10/21%Time=635248E9%P=x86_64-redhat-linux-gnu%
+SF:r(SSLSessionReq,E36,"HTTP/1\.1\x20503\x20Service\x20Unavailable\r\nServ
+SF:er:\x20squid\r\nMime-Version:\x201\.0\r\nDate:\x20Fri,\x2021\x20Oct\x20
+SF:2022\x2007:23:21\x20GMT\r\nContent-Type:\x20text/html;charset=utf-8\r\n
+SF:Content-Length:\x203388\r\nX-Squid-Error:\x20ERR_CONNECT_FAIL\x20111\r\
+SF:nVary:\x20Accept-Language\r\nContent-Language:\x20en\r\n\r\n<!DOCTYPE\x
+SF:20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\x20\"http://ww
+SF:w\.w3\.org/TR/html4/strict\.dtd\">\n<html><head>\n<meta\x20http-equiv=\
+SF:"Content-Type\"\x20CONTENT=\"text/html;\x20charset=utf-8\">\n<title>ERR
+SF:OR:\x20The\x20requested\x20URL\x20could\x20not\x20be\x20retrieved</titl
+SF:e>\n<style\x20type=\"text/css\"><!--\x20\n\x20/\*\n\x20\*\x20Copyright\
+SF:x20\(C\)\x201996-2018\x20The\x20Squid\x20Software\x20Foundation\x20and\
+SF:x20contributors\n\x20\*\n\x20\*\x20Squid\x20software\x20is\x20distribut
+SF:ed\x20under\x20GPLv2\+\x20license\x20and\x20includes\n\x20\*\x20contrib
+SF:utions\x20from\x20numerous\x20individuals\x20and\x20organizations\.\n\x
+SF:20\*\x20Please\x20see\x20the\x20COPYING\x20and\x20CONTRIBUTORS\x20files
+SF:\x20for\x20details\.\n\x20\*/\n\n/\*\n\x20Stylesheet\x20for\x20Squid\x2
+SF:0Error\x20pages\n\x20Adapted\x20from\x20design\x20by\x20Free\x20CSS\x20
+SF:Templates\n\x20http://www\.freecsstemplates\.")%r(TLSSessionReq,E36,"HT
+SF:TP/1\.1\x20503\x20Service\x20Unavailable\r\nServer:\x20squid\r\nMime-Ve
+SF:rsion:\x201\.0\r\nDate:\x20Fri,\x2021\x20Oct\x202022\x2007:23:21\x20GMT
+SF:\r\nContent-Type:\x20text/html;charset=utf-8\r\nContent-Length:\x203388
+SF:\r\nX-Squid-Error:\x20ERR_CONNECT_FAIL\x20111\r\nVary:\x20Accept-Langua
+SF:ge\r\nContent-Language:\x20en\r\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-
+SF://W3C//DTD\x20HTML\x204\.01//EN\"\x20\"http://www\.w3\.org/TR/html4/str
+SF:ict\.dtd\">\n<html><head>\n<meta\x20http-equiv=\"Content-Type\"\x20CONT
+SF:ENT=\"text/html;\x20charset=utf-8\">\n<title>ERROR:\x20The\x20requested
+SF:\x20URL\x20could\x20not\x20be\x20retrieved</title>\n<style\x20type=\"te
+SF:xt/css\"><!--\x20\n\x20/\*\n\x20\*\x20Copyright\x20\(C\)\x201996-2018\x
+SF:20The\x20Squid\x20Software\x20Foundation\x20and\x20contributors\n\x20\*
+SF:\n\x20\*\x20Squid\x20software\x20is\x20distributed\x20under\x20GPLv2\+\
+SF:x20license\x20and\x20includes\n\x20\*\x20contributions\x20from\x20numer
+SF:ous\x20individuals\x20and\x20organizations\.\n\x20\*\x20Please\x20see\x
+SF:20the\x20COPYING\x20and\x20CONTRIBUTORS\x20files\x20for\x20details\.\n\
+SF:x20\*/\n\n/\*\n\x20Stylesheet\x20for\x20Squid\x20Error\x20pages\n\x20Ad
+SF:apted\x20from\x20design\x20by\x20Free\x20CSS\x20Templates\n\x20http://w
+SF:ww\.freecsstemplates\.");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Oct 21 03:23:30 2022 -- 1 IP address (1 host up) scanned in 82.99 seconds
