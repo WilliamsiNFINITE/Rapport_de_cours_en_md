@@ -1,0 +1,11 @@
+# Nmap 7.70 scan initiated Fri Oct 21 03:14:45 2022 as: nmap -oN scan_2.txt scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.0064s latency).
+Not shown: 996 filtered ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+8080/tcp open  http-proxy
+
+# Nmap done at Fri Oct 21 03:15:55 2022 -- 1 IP address (1 host up) scanned in 70.73 seconds
