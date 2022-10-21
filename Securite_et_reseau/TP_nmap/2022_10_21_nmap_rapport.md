@@ -95,7 +95,11 @@ Avec cette méthode, l'alerte n'est pas affichée comme prévue.
 
 ### Path Traversal
 
-#### 
+#### Information disclosure via path traversal
+
+#### Data tampering via path traversal
+
+
 
 
 
