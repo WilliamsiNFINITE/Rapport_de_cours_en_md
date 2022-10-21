@@ -23,6 +23,29 @@ Puis, j'ai uniquement voulu scanner sans les arguments donnés dans le manuel et
 $ nmap scanme.nmap.org -oN scan_2.txt
 ```
 
+Pour déterminer la version du service, on utilise le paramètre -sV. Le scan est disponible à [cette adresse](scan_3.txt). On peut constater les différentes versions :
+
+```console
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http       Apache httpd 2.4.7 ((Ubuntu))
+443/tcp  open  https?
+3128/tcp open  http-proxy Squid http proxy
+8080/tcp open  http-proxy Squid http proxy
+```
+
+L'exclusion du port 22 se fait avec le paramètre -exclude-ports 22. Le retour est similaire au précédent qui ne contenait déjà pas le port 22.
+Le scan UDP est réalisé avec le paramètre -sU et les privilèges root.
+
+```console
+Starting Nmap 7.70 ( https://nmap.org ) at 2022-10-21 03:38 EDT
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.0011s latency).
+Not shown: 999 open|filtered ports
+PORT    STATE SERVICE
+123/udp open  ntp
+
+Nmap done: 1 IP address (1 host up) scanned in 25.11 seconds
+```
 
 
 
