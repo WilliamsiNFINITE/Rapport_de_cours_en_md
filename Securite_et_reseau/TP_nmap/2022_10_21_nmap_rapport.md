@@ -52,6 +52,3 @@ Lorsqu'on scanne avec le param√®tre -T0, on se rend compte que le scan est plut√
 
 ## Google gruyere 
 
-### 
-
-###
