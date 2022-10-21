@@ -52,3 +52,5 @@ Lorsqu'on scanne avec le param√®tre -T0, on se rend compte que le scan est plut√
 
 ## Google gruyere 
 
+Id gruyere : 572500445629261051927482590611010663090
+
