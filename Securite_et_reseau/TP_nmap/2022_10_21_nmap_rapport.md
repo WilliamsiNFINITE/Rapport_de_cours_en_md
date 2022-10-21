@@ -1,7 +1,6 @@
+# Résolution d'exercices sur Google Gruyère
 
-# Résolution d'exercices de CTF
-
-Ce rapport documente la réalisation du TP sur nmap
+Ce rapport documente la réalisation du TP sur nmap et Google Gruyère
 
 ## Sommaire
 
@@ -53,4 +52,55 @@ Lorsqu'on scanne avec le paramètre -T0, on se rend compte que le scan est plut�
 ## Google gruyere 
 
 Id gruyere : 572500445629261051927482590611010663090
+
+### Cross-site scripting
+
+#### File Upload XSS 
+
+Il est possible d'executer un script en l'uploadant. J'ai crée un fichier html dans lequel j'ai mis :
+```html
+<i>hello</i>
+<script>alert('Alerte')</script>
+```
+
+Lorsque l'upload est fait, je peux accéder à mon fichier avec [ce lien : https://google-gruyere.appspot.com/572500445629261051927482590611010663090/bob/tres_mechant_script.html](https://google-gruyere.appspot.com/572500445629261051927482590611010663090/bob/tres_mechant_script.html).
+
+Le pop-up est ainsi affiché :
+
+![image](https://user-images.githubusercontent.com/91114817/197162227-6d0ddb2a-aae7-44e8-a1c2-8559ba64fc93.png)
+
+
+#### Reflected XSS 
+
+L'objectif est de trouver une URL qui va nous permettre d'executer un script. En ajoutant des caractères aléatoires dans l'url, on se rend compte que ces caractères sont affichés dans la page. 
+
+![image](https://user-images.githubusercontent.com/91114817/197165301-f79a4f72-8506-4070-9ac6-c9744419187a.png)
+
+L'idée est de rajouter dans le lien une commande comme celle que l'on a mise dans l'exercice précédent. Par exemple:
+
+```html
+https://google-gruyere.appspot.com/572500445629261051927482590611010663090/%3Ci%3Ehello%3C/i%3E%3Cscript%3Ealert('Alerte')%3C/script%3E
+```
+
+#### Store XSS
+
+L'objectif est de stocker un XSS pour qu'un autre utilisateur le voit. On peut utiliser les snippet et en poster un avec le code précédent. 
+![image](https://user-images.githubusercontent.com/91114817/197166741-af7cce18-4057-4e9f-9f39-742bc4cc7956.png)
+
+Avec cette méthode, l'alerte n'est pas affichée comme prévue. 
+
+![image](https://user-images.githubusercontent.com/91114817/197166874-2bb78fef-afbd-4da9-aea1-4a5f350eb39a.png)
+
+#### Stored XSS via HTML Attributes
+
+### Path Traversal
+
+#### 
+
+
+
+
+
+
+
 
