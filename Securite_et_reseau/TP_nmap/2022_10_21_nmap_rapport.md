@@ -47,7 +47,7 @@ PORT    STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 25.11 seconds
 ```
 
-
+Lorsqu'on scanne avec le paramètre -T0, on se rend compte que le scan est plutôt long est qu'il n'y a pas un débit important de paquets envoyés. L'inverse est visible avec -T5 où l'analyse est rapide et le débit de paquet est très élevé.
 
 
 ## Google gruyere 
