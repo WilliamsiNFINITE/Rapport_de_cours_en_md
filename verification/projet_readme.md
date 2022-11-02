@@ -6,7 +6,7 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 ## Sommaire
 
 * [Introduction](#Introduction)
-* [Traduction des vérifications] (#Traduction des vérifications)
+* [Traduction des vérifications] (#Traduction-des-vérifications)
 
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
