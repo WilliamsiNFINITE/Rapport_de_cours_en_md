@@ -121,11 +121,12 @@ Dans la commande précédente on voit que le port utilisé est le port 3306. Ce 
 
 ### Question 7
 
-Les commandes obligatoires sont indiquées avec le champ required : CHALLENGE, SRVHOST, SRVPORT, SRVVERSION
+Les commandes obligatoires sont indiquées avec le champ required (CHALLENGE, SRVHOST, SRVPORT, SRVVERSION) 
 
-### Question 8
+### Question 8 
 
-On peut avoir accès au code depuis le site [Exploit Database](https://www.exploit-db.com/)
+On peut avoir accès au code avec la commande **edit** (ou depuis le site [Exploit Database](https://www.exploit-db.com/) ?).
+
 
 ## Installation des machines virtuelles
 ## Pentest de la machine Metasploitable 1
