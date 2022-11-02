@@ -34,7 +34,8 @@ Déclarations :
 ### SCS 1
 >After engie start, there is no previous desired speed. The valid values for desired speed are from 1 km/h to 200 km/h.
 
-Il faut donc qu'au démarrage du véhicule, au moment où le régulateur est encore éteint, la vitesse désirée ne soit pas valide (soit égale à 0). La condition est donc regulateur.off ==> desired_speed = 0
+Il faut donc qu'au démarrage du véhicule, au moment où le régulateur est encore éteint, la vitesse désirée ne soit pas valide (soit égale à 0). La condition est donc regulateur.off ==> setVehicleSpeed = 0
+et bien moteur.start & regulateur.on  ==> setVehiculeSpeed > 1 & setVehiculeSpeed < 200
 
 ### SCS 2
 >When pulling the cruise control lever to 1 , the desired speed is either the current vehicle speed (if there is no previous desired speed) or the previous desired speed (if already set).
