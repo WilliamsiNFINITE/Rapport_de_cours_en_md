@@ -7,8 +7,9 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 
 * [Introduction](#Introduction)
 * [Traduction des vérifications](#Traduction-des-vérifications)
-* [SCS 1](#SCS-1)
-* [SCS 2](#SCS-2)
+  * [SCS 1](#SCS-1)
+  * [SCS 2](#SCS-2)
+  * [SCS 3](#SCS-3)
 
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
@@ -25,3 +26,10 @@ Il faut donc qu'au démarrage du véhicule, au moment où le régulateur est enc
 Quand on appuie sur le bouton 1, la vitesse voulue est soit la vitesse actuelle (si il n'y avait pas de vitessse désirée en mémoire) soit la précédente vitesse désirée en mémoire. On peut donc la résumer ainsi :
 
 button1 ==> (desired_speed==speed & previous_desired_speed=0) || (desired_speed==previous_desired_speed)
+
+### SCS 3
+>If the current vehicle speed is below 20km/h and there is no previous desired speed, then pulling the cruise control lever to 1 does not activate the (adaptive) cruise control.
+
+Si la vitesse actuelle du véhicule est sous les 20km/h et qu'il n'y a pas de vitesse désirée, appuyer sur le bouton 1 n'active pas le régulateur de vitesse. La condition peut s'écrire ainsi :
+
+(speed<20 & desired_speed = 0 & button1)==> regulateur.off
