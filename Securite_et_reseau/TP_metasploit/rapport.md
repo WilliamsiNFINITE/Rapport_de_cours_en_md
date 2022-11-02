@@ -1,6 +1,10 @@
 # Machines vullnérables et Metasploit
 Ce rapport documente la réalisation du TP sur Metasploit
 
+Procédure : 
+- On isole la machine
+- On isole le service
+
 ## Sommaire
 
 * [Introduction rapide a Metasploit](#Introduction-rapide-a-Metasploit)
@@ -138,19 +142,32 @@ Identifiant de connexion : msfadmin msfadmin
 
 ### Question 9
 
-OS : Ubuntu
+OS : Ubuntu (**lsb_release -a** depuis la machine cible)
 
 ### Question 10
 
-Depuis la machine virtuelle cible : **ifconfig** --> 198.168.11.44
+Depuis la machine virtuelle cible : **ifconfig** --> 192.168.23.129
 
 ### Question 11 
 
 Depuis la VM attaquante : **sudo netdiscover**
+```console
+Currently scanning: 192.168.77.0/16   |   Screen View: Unique Hosts                
+                                                                                    
+ 4 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 240                    
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+ -----------------------------------------------------------------------------
+ 192.168.23.1    00:50:56:c0:00:01      2     120  VMware, Inc.                     
+ 192.168.23.129  00:0c:29:7c:2b:2e      1      60  VMware, Inc.                 <------ VM Cible     
+ 192.168.23.254  00:50:56:ed:73:6b      1      60  VMware, Inc.                     
+
+
+```
 
 ### Question 12
 
-On utilise nmap avec la commande **nmap -A -sV 198.168.11.44** (c'est un peu long)
+On utilise nmap avec la commande **nmap -A -sV 198.168.23.129** (c'est un peu long)
 
 ```console
 ┌──(hoarauwi㉿kali)-[~]
@@ -172,6 +189,16 @@ Nmap done: 1 IP address (1 host up) scanned in 250.01 seconds
 
 ### Question 13
 
+```console
+┌──(hoarauwi㉿kali)-[~]
+└─$ nmap 198.168.11.44 -A -T5 
+...
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http-proxy Squid http proxy
+8080/tcp open  http-proxy Squid http proxy
+...
+
+```
 
 
 ## Etude d une machine libre
