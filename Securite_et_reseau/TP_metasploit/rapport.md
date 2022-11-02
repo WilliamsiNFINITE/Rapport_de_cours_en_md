@@ -1,10 +1,15 @@
-# Résolution d'exercices sur Google Gruyère
-
-Ce rapport documente la réalisation du TP sur nmap et Google Gruyère
+# Machines vullnérables et Metasploit
+Ce rapport documente la réalisation du TP sur Metasploit
 
 ## Sommaire
 
-* [Introduction à Nmap](#introduction-a-nmap)
-* [Google gruyere](#Google-gruyere)
+* [Introduction rapide a Metasploit](#Introduction-rapide-a-Metasploit)
+* [Installation des machines virtuelles](#Installation-des-machines-virtuelles)
+* [Pentest de la machine Metasploitable 1](#Pentest-de-la-machine-Metasploitable-1)
+* [Etude d'une machine libre](#Etude-d'une-machine-libre)
 
-## Introduction a nmap
+## Introduction rapide a Metasploit
+## Installation des machines virtuelles
+## Pentest de la machine Metasploitable 1
+## Etude d'une machine libre
+
