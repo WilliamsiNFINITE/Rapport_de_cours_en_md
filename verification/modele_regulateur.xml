@@ -4,7 +4,7 @@
 	<declaration>// Place global declarations here.
 int[0,255] brakePedal = 0; //  valeur comprise dans [0-255]
 int brakePressure = 0;
-int setVehicleSpeed = 0;
+int[0,200] setVehicleSpeed = 0;
 int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
 bool engineOn = false; 
 bool speedLimiterSwitchOn = false;
@@ -42,30 +42,86 @@ int delta_v = 0;
 	<template>
 		<name x="5" y="5">Regulateur</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id2" x="-110" y="-25">
+		<location id="id2" x="-280" y="-42">
+			<name x="-290" y="-76">off</name>
+		</location>
+		<location id="id3" x="-161" y="-42">
+			<name x="-171" y="-76">on</name>
 		</location>
 		<init ref="id2"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<nail x="-221" y="-17"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<nail x="-229" y="-68"/>
+		</transition>
 	</template>
 	<template>
 		<name x="5" y="5">Commodo</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id3" x="-110" y="-25">
+		<location id="id4" x="-110" y="-25">
 		</location>
-		<init ref="id3"/>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="-119" y="76">3</label>
+			<nail x="-119" y="76"/>
+			<nail x="-110" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="-204" y="25">5</label>
+			<nail x="-187" y="25"/>
+			<nail x="-178" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="-255" y="-34">4</label>
+			<nail x="-238" y="-34"/>
+			<nail x="-238" y="-25"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="-93" y="-136">2</label>
+			<nail x="-102" y="-127"/>
+			<nail x="-110" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="-17" y="-85">6</label>
+			<nail x="0" y="-42"/>
+			<nail x="-42" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="42" y="-25">1</label>
+			<nail x="34" y="-25"/>
+			<nail x="34" y="-17"/>
+		</transition>
 	</template>
 	<template>
 		<name x="5" y="5">Frein</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id4" x="-110" y="-25">
+		<location id="id5" x="-110" y="-25">
 		</location>
-		<init ref="id4"/>
+		<init ref="id5"/>
 	</template>
 	<template>
 		<name x="5" y="5">Acceleration</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id5" x="-110" y="-25">
+		<location id="id6" x="-110" y="-25">
 		</location>
-		<init ref="id5"/>
+		<init ref="id6"/>
 	</template>
 	<system>// Place template instantiations here.
 Process = Template();
