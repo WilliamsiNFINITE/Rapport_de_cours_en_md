@@ -134,6 +134,44 @@ Check
 
 ## Pentest de la machine Metasploitable 1
 
+Identifiant de connexion : msfadmin msfadmin
+
+### Question 9
+
+OS : Ubuntu
+
+### Question 10
+
+Depuis la machine virtuelle cible : **ifconfig** --> 198.168.11.44
+
+### Question 11 
+
+Depuis la VM attaquante : **sudo netdiscover**
+
+### Question 12
+
+On utilise nmap avec la commande **nmap -A -sV 198.168.11.44** (c'est un peu long)
+
+```console
+┌──(hoarauwi㉿kali)-[~]
+└─$ nmap -A  -sV  198.168.11.44
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-02 09:35 GMT
+Nmap scan report for 198.168.11.44
+Host is up (0.017s latency).
+Not shown: 995 filtered tcp ports (no-response), 2 filtered tcp ports (host-unreach)
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http?
+443/tcp  open  https?
+8080/tcp open  http-proxy Squid http proxy
+|_http-server-header: squid
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 250.01 seconds
+
+```
+
+### Question 13
+
 
 
 ## Etude d une machine libre
