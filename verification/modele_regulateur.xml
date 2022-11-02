@@ -4,11 +4,17 @@
 	<declaration>// Place global declarations here.
 int[0,255] brakePedal = 0; //  valeur comprise dans [0-255]
 int brakePressure = 0;
-int[0,200] setVehicleSpeed = 0;
-int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
-bool engineOn = false; 
-bool speedLimiterSwitchOn = false;
 int delta_v = 0;
+bool engineOn = false; 
+int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
+int[0,200] setVehicleSpeed = 0;
+bool speedLimiterSwitchOn = false;
+
+chan on, off, inc, dec, set, stop, start;
+chan stop;
+chan pause, resume;
+
+
 
 </declaration>
 	<template>
@@ -65,13 +71,28 @@ int delta_v = 0;
 		<declaration>// Place local declarations here.</declaration>
 		<location id="id4" x="-110" y="-25">
 		</location>
+		<location id="id5" x="-110" y="-119">
+			<name x="-102" y="-153">2</name>
+		</location>
+		<location id="id6" x="-110" y="68">
+			<name x="-93" y="51">3</name>
+		</location>
 		<init ref="id4"/>
 		<transition>
-			<source ref="id4"/>
+			<source ref="id6"/>
 			<target ref="id4"/>
-			<label kind="comments" x="-119" y="76">3</label>
-			<nail x="-119" y="76"/>
-			<nail x="-110" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
@@ -86,13 +107,6 @@ int delta_v = 0;
 			<label kind="comments" x="-255" y="-34">4</label>
 			<nail x="-238" y="-34"/>
 			<nail x="-238" y="-25"/>
-		</transition>
-		<transition>
-			<source ref="id4"/>
-			<target ref="id4"/>
-			<label kind="comments" x="-93" y="-136">2</label>
-			<nail x="-102" y="-127"/>
-			<nail x="-110" y="-127"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
@@ -112,16 +126,16 @@ int delta_v = 0;
 	<template>
 		<name x="5" y="5">Frein</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id5" x="-110" y="-25">
+		<location id="id7" x="-110" y="-25">
 		</location>
-		<init ref="id5"/>
+		<init ref="id7"/>
 	</template>
 	<template>
 		<name x="5" y="5">Acceleration</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id6" x="-110" y="-25">
+		<location id="id8" x="-110" y="-25">
 		</location>
-		<init ref="id6"/>
+		<init ref="id8"/>
 	</template>
 	<system>// Place template instantiations here.
 Process = Template();
