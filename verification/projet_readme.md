@@ -33,3 +33,4 @@ button1 ==> (desired_speed==speed & previous_desired_speed=0) || (desired_speed=
 Si la vitesse actuelle du véhicule est sous les 20km/h et qu'il n'y a pas de vitesse désirée, appuyer sur le bouton 1 n'active pas le régulateur de vitesse. La condition peut s'écrire ainsi :
 
 (speed<20 & desired_speed = 0 & button1)==> regulateur.off
+
