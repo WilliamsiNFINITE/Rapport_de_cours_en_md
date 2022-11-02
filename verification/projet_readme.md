@@ -16,3 +16,10 @@ Nous allons procéder de la manière suivante : il y a deux opérateurs principa
 >After engie start, there is no previous desired speed. The valid values for desired speed are from 1 km/h to 200 km/h.
 
 Il faut donc qu'au démarrage du véhicule, au moment où le régulateur est encore éteint, la vitesse désirée ne soit pas valide (soit égale à 0). La condition est donc regulateur.off ==> desired_speed = 0
+
+### SCS 2
+>When pulling the cruise control lever to 1 , the desired speed is either the current vehicle speed (if there is no previous desired speed) or the previous desired speed (if already set).
+
+Quand on appuie sur le bouton 1, la vitesse voulue est soit la vitesse actuelle (si il n'y avait pas de vitessse désirée en mémoire) soit la précédente vitesse désirée en mémoire. On peut donc la résumer ainsi :
+
+button1 ==> (desired_speed==speed & previous_desired_speed=0) || (desired_speed==previous_desired_speed)
