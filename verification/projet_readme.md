@@ -72,11 +72,22 @@ Example: Current desired speed is 57 km/h −→ new desired speed is
 
 Si le conducteur appuie sur le bouton 2 jusqu'à une résistance de 7° et que le régulateur est activé, la vitesse désirée est augmentée jusqu'à la prochaine dizaine de km/h. (ex: on est à 54 km/h -> on passe à 60 km/h). On a ici besoin de soit rajouter un observateur, soit stocker un historique des valeurs de vitesse précédente.
 
-`button 2 --> previous_desired_speed//10 +10 =desired_speed`
+`button 2 --> (previous_desired_speed//10)*10 +10 =desired_speed`
 
 ### SCS 6
 >Pushing the cruise control lever to 3 reduces the desired speed accordingly to Req. SCS-4 and Req. SCS-5. The lowest desired speed that can be set by pushing the cruise control lever beyond the pressure point is 10 km/h.
 
-Appuyer sur le bouton 3 réduit la vitesse désirée selon les 
+Appuyer sur le bouton 3 réduit la vitesse désirée selon les exigences [SCS 4](#SCS-4) et [SCS 5](#SCS-5). La vitesse désirée la plus basse avec cette commande doit être 10 km/h.
 
-`button 2 --> previous_desired_speed//10 +10 =desired_speed`
+`button 2 --> previous_desired_speed-1=desired_speed`
+`button 2 --> (previous_desired_speed//10)*10 -10 =desired_speed`
+`desired_speed>=10`
+
+### SCS 7
+>If the driver pushes the cruise control lever to 2 with activated cruise control within the first resistance level (5◦, not beyond the pressure point) and holds it there for 2 seconds, the desired speed of the cruise control is increased every second by 1 km/h until the lever is in neutral position again. Example: Current desired speed is 57 km/h −→ new desired speed is 58 km/h (due to Req. SCS-4), after holding 2 seconds, desired speed is set to 59 km/h, after holding another second, desired speed is set to 60 km/h, after holding another second, desired speed is set to 61 km/h, etc
+
+Si le conducteur appuie sur le bouton 2 avec le premier niveau de résistance (5°) et le garde appuyé, la vitesse désirée du régulateur augmente de 1 km/h chaque seconde jusqu'à ce que le bouton revienne en position normale. 
+
+`button 2 pendant x secondes--> previous_desired_speed+x=desired_speed`
+
+
