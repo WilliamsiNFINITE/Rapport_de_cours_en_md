@@ -7,7 +7,7 @@ int brakePressure = 0;
 int delta_v = 0;
 bool engineOn = false; 
 int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
-int[0,200] setVehicleSpeed  = 5;
+int[0,200] setVehicleSpeed  = 0;
 bool speedLimiterSwitchOn = false;
 
 chan onChan;
@@ -191,11 +191,7 @@ system engine,regulateur;
     </system>
 	<queries>
 		<query>
-			<formula></formula>
-			<comment></comment>
-		</query>
-		<query>
-			<formula>setVehicleSpeed = 0 --&gt; regulateur.off</formula>
+			<formula>regulateur.off --&gt; setVehicleSpeed == 0</formula>
 			<comment></comment>
 		</query>
 	</queries>
