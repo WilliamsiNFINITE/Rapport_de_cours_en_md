@@ -9,3 +9,8 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
+
+## Traduction des vérifications
+### SCS 1
+>After engie start, there is no previous desired speed. The valid values for desired speed are from 1 km/h to 200 km/h.
+Il faut donc qu'au démarrage du véhicule, au moment où le régulateur est encore éteint, la vitesse désirée ne soit pas valide (soit égale à 0).
