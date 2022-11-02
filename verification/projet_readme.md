@@ -16,6 +16,10 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
   * [SCS 7](#SCS-7)
   * [SCS 8](#SCS-8)
   * [SCS 9](#SCS-9)
+  * [SCS 10](#SCS-10)
+  * [SCS 11](#SCS-11)
+  * [SCS 12](#SCS-12)
+  * [SCS 13](#SCS-13)
 
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
@@ -112,5 +116,15 @@ Même chose que la [#SCS-](#SCS-7) mais pour décrémenter de dizaine en dizaine
 Si le régulateur de vitesse est désactivé et que la manette est levée ou baissée (boutons 2 et 3), quel que soit le niveau (5 ou 7°), la vitesse du véhicule est considérée comme la vitesse désirée.
 
 `(bouton 2 || bouton 3) & regulateur.desactivé --> desired_speed=speed`
+
+### SCS 12
+>Pressing the cruise control lever to 4 deactivates the (adaptive) cruise control. setVehicleSpeed = 0 indicates to the car that there is no speed to maintain.
+
+Appuyer sur le bouton 4 désactive le régulateur de vitesse. setVehiceSpeed=0 indique à la voiture qu'il n'y a pas de vitesse à maintenir.
+
+`bouton 4 -> setVehicleSpeed =0`
+
+### SCS 13
+>
 
 
