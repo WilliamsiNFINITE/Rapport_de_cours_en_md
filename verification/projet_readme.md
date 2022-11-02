@@ -14,6 +14,21 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
 
+Déclarations :
+
+- setSpeed ()
+- brakePedal (0-255)
+- brakePressure ()
+- engineOn (True, False)
+- speedLimiterSwitchOn (True,False)
+- setVehicleSpeed (>0)
+- gasPedal (max = 45° = maximum setVehicleSpeed)
+- d (deceleration = brakePedal/37,5
+
+**Attention, il n'y a pas de lien entre gasPedal (ou setVehicleSpeed) et la vitesse du véhicule.**
+
+
+
 ## Traduction des vérifications
 ### SCS 1
 >After engie start, there is no previous desired speed. The valid values for desired speed are from 1 km/h to 200 km/h.
