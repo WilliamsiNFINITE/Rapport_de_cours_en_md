@@ -16,6 +16,8 @@ chan pause, resume;
 
 
 
+
+
 </declaration>
 	<template>
 		<name x="5" y="5">Engine</name>
@@ -58,11 +60,13 @@ chan pause, resume;
 		<transition>
 			<source ref="id3"/>
 			<target ref="id2"/>
+			<label kind="synchronisation" x="-209" y="-34">off!</label>
 			<nail x="-221" y="-17"/>
 		</transition>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id3"/>
+			<label kind="synchronisation" x="-211" y="-72">on!</label>
 			<nail x="-229" y="-68"/>
 		</transition>
 	</template>
@@ -81,14 +85,16 @@ chan pause, resume;
 		<transition>
 			<source ref="id6"/>
 			<target ref="id4"/>
-		</transition>
-		<transition>
-			<source ref="id4"/>
-			<target ref="id6"/>
+			<nail x="-102" y="17"/>
 		</transition>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id4"/>
+			<nail x="-119" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
@@ -104,6 +110,7 @@ chan pause, resume;
 		<transition>
 			<source ref="id4"/>
 			<target ref="id4"/>
+			<label kind="synchronisation" x="-220" y="-46">off?</label>
 			<label kind="comments" x="-255" y="-34">4</label>
 			<nail x="-238" y="-34"/>
 			<nail x="-238" y="-25"/>
@@ -118,6 +125,7 @@ chan pause, resume;
 		<transition>
 			<source ref="id4"/>
 			<target ref="id4"/>
+			<label kind="synchronisation" x="0" y="-17">on?</label>
 			<label kind="comments" x="42" y="-25">1</label>
 			<nail x="34" y="-25"/>
 			<nail x="34" y="-17"/>
@@ -126,21 +134,59 @@ chan pause, resume;
 	<template>
 		<name x="5" y="5">Frein</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id7" x="-110" y="-25">
+		<location id="id7" x="-263" y="-42">
+			<name x="-273" y="-76">off</name>
+		</location>
+		<location id="id8" x="-161" y="-68">
+			<name x="-171" y="-102">brake</name>
+		</location>
+		<location id="id9" x="-161" y="-8">
+			<name x="-171" y="-42">emergency_brake</name>
 		</location>
 		<init ref="id7"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<nail x="-212" y="-76"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id7"/>
+			<nail x="-229" y="-8"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<nail x="-144" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id9"/>
+		</transition>
 	</template>
 	<template>
 		<name x="5" y="5">Acceleration</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id8" x="-110" y="-25">
+		<location id="id10" x="-110" y="-25">
 		</location>
-		<init ref="id8"/>
+		<init ref="id10"/>
 	</template>
 	<system>// Place template instantiations here.
-Process = Template();
+engine = Engine();
+regulateur = Regulateur();
+commodo = Commodo();
+frein = Frein();
+accelerateur = Accelerateur();
 // List one or more processes to be composed into a system.
-system Process;
+system engine,regulateur;
     </system>
 	<queries>
 		<query>
