@@ -90,4 +90,19 @@ Si le conducteur appuie sur le bouton 2 avec le premier niveau de résistance (5
 
 `button 2 pendant x secondes--> previous_desired_speed+x=desired_speed`
 
+### SCS 8
+>If the driver pushes the cruise control lever to 2 with activated cruise control through the first resistance level (7◦, beyond the pressure point) and holds it there for 2 seconds, the speed set point of the cruise control is increased every 2 seconds to the next ten’s place until the lever is in neutral position again.
+Example: Current desired speed is 57 km/h −→ new desired speed is 60 km/h (due to Req. SCS-5), after holding 2 seconds, desired speed is set to 70 km/h, after another 2 seconds, desired speed is set to 80 km/h, after holding another 2 seconds, desired speed is set to 90 km/h, etc.
 
+Même chose que la [#SCS-7](#SCS-7) mais pour les dizaines de km/h
+
+### SCS 8
+>If the driver pushes the cruise control lever to 2 with activated cruise control through the first resistance level (7◦, beyond the pressure point) and holds it there for 2 seconds, the speed set point of the cruise control is increased every 2 seconds to the next ten’s place until the lever is in neutral position again.
+Example: Current desired speed is 57 km/h −→ new desired speed is 60 km/h (due to Req. SCS-5), after holding 2 seconds, desired speed is set to 70 km/h, after another 2 seconds, desired speed is set to 80 km/h, after holding another 2 seconds, desired speed is set to 90 km/h, etc.
+
+Même chose que la [#SCS-7](#SCS-7) mais pour les dizaines de km/h
+
+### SCS 9
+>If the driver pushes the cruise control lever to 3 with activated cruise control within the first resistance level (5◦, not beyond the pressure point) and holds it there for 2 seconds, the desired speed of the cruise control is reduced every second by 1 km/h until the lever is in neutral position again. Example: Current desired speed is 57 km/h −→ new desired speed is 56 km/h (due to Req. SCS-6) after holding 2 seconds,desired speed is set to 55 km/h, after another second, desired speed is set to 54 km/h, after holding another second, desired speed is set to 53 km/h, etc.
+
+Même chose que la [#SCS-](#SCS-7) mais pour les dizaines de km/h
