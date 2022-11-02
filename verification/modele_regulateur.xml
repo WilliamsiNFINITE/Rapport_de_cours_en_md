@@ -81,10 +81,13 @@ chan resume;
 		<name x="5" y="5">Commodo</name>
 		<declaration>// Place local declarations here.</declaration>
 		<location id="id4" x="-110" y="-25">
+			<name x="-120" y="-59">repos</name>
 		</location>
 		<location id="id5" x="-110" y="-119">
+			<name x="-120" y="-153">deux</name>
 		</location>
 		<location id="id6" x="-110" y="68">
+			<name x="-120" y="34">trois</name>
 		</location>
 		<init ref="id4"/>
 		<transition>
@@ -189,7 +192,7 @@ engine = Engine();
 regulateur = Regulateur();
 commodo = Commodo();
 frein = Frein();
-accelerateur = Accelerateur();
+accelerateur = Acceleration();
 // List one or more processes to be composed into a system.
 system engine,regulateur;
     </system>
@@ -199,7 +202,7 @@ system engine,regulateur;
 			<comment></comment>
 		</query>
 		<query>
-			<formula>regulateur.off ==&gt; setVehiculeSpeed = 0</formula>
+			<formula>regulateur.off --&gt; setVehiculeSpeed = 0</formula>
 			<comment></comment>
 		</query>
 	</queries>
