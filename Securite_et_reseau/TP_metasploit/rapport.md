@@ -129,6 +129,12 @@ On peut avoir accès au code avec la commande **edit** (ou depuis le site [Explo
 
 
 ## Installation des machines virtuelles
+
+Check 
+
 ## Pentest de la machine Metasploitable 1
+
+
+
 ## Etude d une machine libre
 
