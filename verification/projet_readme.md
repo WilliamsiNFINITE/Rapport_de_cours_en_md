@@ -96,13 +96,21 @@ Example: Current desired speed is 57 km/h −→ new desired speed is 60 km/h (d
 
 Même chose que la [#SCS-7](#SCS-7) mais pour les dizaines de km/h
 
-### SCS 8
->If the driver pushes the cruise control lever to 2 with activated cruise control through the first resistance level (7◦, beyond the pressure point) and holds it there for 2 seconds, the speed set point of the cruise control is increased every 2 seconds to the next ten’s place until the lever is in neutral position again.
-Example: Current desired speed is 57 km/h −→ new desired speed is 60 km/h (due to Req. SCS-5), after holding 2 seconds, desired speed is set to 70 km/h, after another 2 seconds, desired speed is set to 80 km/h, after holding another 2 seconds, desired speed is set to 90 km/h, etc.
-
-Même chose que la [#SCS-7](#SCS-7) mais pour les dizaines de km/h
-
 ### SCS 9
 >If the driver pushes the cruise control lever to 3 with activated cruise control within the first resistance level (5◦, not beyond the pressure point) and holds it there for 2 seconds, the desired speed of the cruise control is reduced every second by 1 km/h until the lever is in neutral position again. Example: Current desired speed is 57 km/h −→ new desired speed is 56 km/h (due to Req. SCS-6) after holding 2 seconds,desired speed is set to 55 km/h, after another second, desired speed is set to 54 km/h, after holding another second, desired speed is set to 53 km/h, etc.
 
-Même chose que la [#SCS-](#SCS-7) mais pour les dizaines de km/h
+Même chose que la [#SCS-](#SCS-7) mais pour décrémenter de 1 km/h.
+
+### SCS 10
+>If the driver pushes the cruise control lever to 3 with activated cruise control through the first resistance level (7◦, beyond the pressure point) and holds it there for 2 seconds, the speed set point of the cruise control is increased every 2 seconds to the next ten’s place until the lever is in neutral position again.
+
+Même chose que la [#SCS-](#SCS-7) mais pour décrémenter de dizaine en dizaine de km/h.
+
+### SCS 11
+>If the (adaptive) cruise control is deactivated and the cruise control lever is moved up or down (either to the first or above the first resistance level, the current vehicle speed is used as desired speed.
+
+Si le régulateur de vitesse est désactivé et que la manette est levée ou baissée (boutons 2 et 3), quel que soit le niveau (5 ou 7°), la vitesse du véhicule est considérée comme la vitesse désirée.
+
+`(bouton 2 || bouton 3) & regulateur.desactivé --> desired_speed=speed`
+
+
