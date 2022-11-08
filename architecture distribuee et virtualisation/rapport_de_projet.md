@@ -1,32 +1,40 @@
-# Compte rendu du TP2 : Ordonnancement
+# Compte rendu du projet d'architecutre distribuée et virtualisation.
 
 Ce rapport documente la manière dont j'ai réalisé le projet du cours sur l'architecture distribuée et la virtualisation.
 Voici le lien du repository du projet : https://github.com/WilliamsiNFINITE/projet_architecture_distribuee_virtualisation
 
 ## Sommaire
 
-* [Exercice 1](#exercice-1)
+* [TD 1](#td-1)
 
 
-## Exercice 1
+## TD 1
 
-- a. En invoquant les appels spécifiques à l’ordonnancement (getpriority()).
+- 1 : Mettez en place votre environnement de travail
 
-Voici le code que j'ai utilisé afin de changer la priorité du processus. Le pid du processus est donné en paramètres.
+Pour ce premier TD j'ai installé les éléments requis pour le bon fonctionnemenbt du projet (docker, fly.io, wsl).
+Dans un second temps, j'ai initialisé le repository en y installant les dépendances avec npm, puis, j'ai executé les tests.
 
-```C
-int main(int argc, char *argv[]) {
-    int priority = 0;
-    int settedPriority = 0;
-    int id = atoi(argv[1]);
+- 2 : Que pouvez-vous dire sur le fichier `package.json` ? Sur le fichier `package-lock.json` ?
 
-    // visualisation des propriétés d'ordonnacement du processus avec getpriority()
-    priority = getpriority(PRIO_PROCESS, id);
-    printf("priorité du processus : %d \n", priority);
+Le fichier `package.json` contient le nom des dépendances du projets. Le fichier `package-lock.json` désigne les éléments nécessaires à tous les packages et dépendances avec plus de détail.
 
-    return 0;
+- 3 : L'installation de systeminformation avec la commande `npm install systeminformation` a ajouté cette dépendance dans le repository. 
 
-}
+```json
+  "dependencies": {
+    "systeminformation": "^5.12.13"
+  }
+```
+
+`devDependency` designe les dépendances qui sont utilisées en local dans le cadre du développement de l'application et qui peuvent ne pas être utilisées en production. `dependency` sont les dépendances qu'on utilise pendant la production de l'application. 
+
+- 4 : 
+
+Difficulté : Appréhender les nouveaux outils. 
+
+```
+
 ```
 
 
