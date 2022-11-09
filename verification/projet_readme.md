@@ -125,6 +125,10 @@ Appuyer sur le bouton 4 désactive le régulateur de vitesse. setVehiceSpeed=0 i
 `bouton 4 -> setVehicleSpeed =0`
 
 ### SCS 13
->
+>The cruise control is activated using the cruise control lever according to Reqs. SCS-1 to SCS-12.
 
+Le régualteur de vitesse est activé avec la manette et se comporte selon les exigences SCS-1 à SCS-12.
+Facile car il suffit de remplir les exigences en question !
 
+### SCS 14
+>As long as the cruise control is activated, the vehicle maintains the current vehicle speed at the desired speed without the driver having to press the gas pedal or the brake pedal.
