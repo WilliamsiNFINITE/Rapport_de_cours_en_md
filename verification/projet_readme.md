@@ -133,6 +133,7 @@ Facile car il suffit de remplir les exigences en question !
 ### SCS 14
 >As long as the cruise control is activated, the vehicle maintains the current vehicle speed at the desired speed without the driver having to press the gas pedal or the brake pedal.
 
-Tant que le régulateur de vitesse est activé, le véhicule matintien la vitesse du véhicule à la vitesse désirée sans que le conducteur ait à appuyer sur la pédale de frein ou d'accélérateur.
+Tant que le régulateur de vitesse est activé, le véhicule maintient la vitesse du véhicule à la vitesse désirée sans que le conducteur ait à appuyer sur la pédale de frein ou d'accélérateur.
+`tous les chemins qui ne passent pas par frein ou accélérateur & régulateur.on --> la vitesse reste la même`
 
 ### SCS 15
