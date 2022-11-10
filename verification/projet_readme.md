@@ -52,6 +52,8 @@ chan resume; // non utilisé
 Nous n'avons pas fait toutes les commandes dans le régulateur : en effet nous nous sommes limités à une augmentation ou une diminution de 1 km/h de la vitesse désirée. Nous n'avons pas fait les commandes liées aux dizaines de km/h qui nous demanderaient de refaire les même méchanismes pour une différente vitesse, de même cela nous demanderait de mutliples vérifications pour chaque vitesse que nous avons entre 1 et 200 km/h.
 Nous avons fait de même avec le "maintien appuyé des leviers de commadne", mais le fait que l'augmentation "simple" marche nous permet de penser qu'il ne s'agit que de créer un nouveau signal dans une nouvelle boucle qui part de l'état "engaged" vers lui-même qui met à jour la vitesse désirée.
 
+Forcément, nous n'avons pas pu tester les propriétés qui découlent des focntionnalités que nous n'avons pas crées, mais toutes celles qui existent dans notre automate marchent et sont vérifiées.
+
 ## Traduction des vérifications
 ### SCS 1
 >After engie start, there is no previous desired speed. The valid values for desired speed are from 1 km/h to 200 km/h.
