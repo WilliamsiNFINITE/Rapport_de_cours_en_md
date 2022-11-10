@@ -160,7 +160,14 @@ Si la vitesse est inférieure à 20 km/h (**remplacée ici par la valeur 1**) ap
 **Cette propriété est vérifiée** par la garde de l'état "off" vers "activation" : `currentSpeed>=1 || setVehicleSpeed!=0`.
 
 ### SCS-4
-Augmentation de 1km/h par une pression du bouton: on a ajouté un état "INCREASE" qui nous permet de vbérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 1. La propriété est donc : `regulateur.INCREASE --> setVehicleSpeed==previousSetVehicleSpeed+1`
+Augmentation de 1km/h par une pression du bouton: on a ajouté un état "INCREASE" qui nous permet de vérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 1. La propriété est donc : `regulateur.INCREASE --> setVehicleSpeed==previousSetVehicleSpeed+1`
 **Cette propriété est vérifiée par notre modèle.**
+
+### SCS-5 
+Augmentation de 10km/h par une pression du bouton: on a decidé de ne pas faire cet état afin de garantir la concision de notre modèle. En pratique il aurait été question d'ajouter un état "INCREASE_7", similaire à l'état "INCREASE" qui nous permet de vérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 10. La propriété est donc : `regulateur.INCREASE_7 --> setVehicleSpeed==previousSetVehicleSpeed+10`
+
+
+
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
+
