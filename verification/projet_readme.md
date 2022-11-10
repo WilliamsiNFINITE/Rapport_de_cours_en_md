@@ -154,8 +154,12 @@ Pour palier ce problème, on crée un nouvel état "activation" qui est de type 
 
 `regulateur.activation --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)`
 
-**Cette propriété est vérifiée.**
+**Cette propriété est vérifiée par notre modèle.**
+### SCS-3
+Si la vitesse est inférieure à 20 km/h (**remplacée ici par la valeur 1**) appuyer sur le bouton 1 n'active pas le régulateur de vitesse.
+**Cette propriété est vérifiée** par la garde de l'état "off" vers "activation" : `currentSpeed>=1 || setVehicleSpeed!=0`.
 
+### SCS-4
 
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
