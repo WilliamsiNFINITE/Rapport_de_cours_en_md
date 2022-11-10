@@ -163,6 +163,9 @@ Ces deux exigences requièrent une application de temps pour déterminer de comb
 ### SCS-11
 Si on appuie sur inc ou dec alors qu'on est dans l'état "off" ou "standby", on arrive dans l'état "engaged" avec la vitesse courante égale à la vitesse voulue. On crée l'état "offtoEngage" pour vérifier cette propriété. `regulateur.offToEngage --> setVehicleSpeed==currentSpeed`
 
+### SCS-12
+L'appui sur le bouton 4 met le régulateur en standby : c'est le rôle de la transition "engaged" vers "standby" avec le channel `pause`. On vérifie ensuite que si on est dans l'état "standby", ie le régulateur est désactivé, la vitesse voulue est bien nulle. `regulateur.standby --> setVehicleSpeed==0`.
+
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
 
