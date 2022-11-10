@@ -150,6 +150,9 @@ On veut que quand on active le régulateur, pour la première fois, la vitesse d
 `regulateur.engaged --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)` La permière partie du OU est pour le cas ou on vient de l'état "standby" et la deuwième de l'état "off" (la vitesse précédente est de 0).
 
 Cette propriété n'est pas vérifiée car ce n'est pas `regulateur.engaged` qu'il faut mais `quand on arrive sur regulateur.engaged en venant de "off" ou "standby"`
+Pour palier ce problème, on crée un nouvel état "activation" qui est de type "commit" c'est-à-dire atomique, et qui prend les deux transitions arrivant des états "off" et "standby" et les redirige vers l'état "engaged". Ainsi, on peut transformer la propriété en modifiant la condition de l'implication : `regulateur.engaged` devient `regulateur.activation` et la propriété finale est : 
+
+`regulateur.activation --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)`
 
 
 ### Deadlock
