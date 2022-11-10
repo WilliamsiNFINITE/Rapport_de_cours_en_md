@@ -140,7 +140,7 @@ Tant que le régulateur de vitesse est activé, le véhicule maintient la vitess
 
 ## Ecriture et test de propriétés
 ### SCS-1
-- On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> setVehicleSpeed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue). <span style="color:blue">Cette propriété est vérifiée par notre modèle.</span>
+- On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> setVehicleSpeed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue). **Cette propriété est vérifiée par notre modèle.**
 - La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0` et `regulateur.standby-->setVehicleSpeed<6 & setVehicleSpeed>0`.
 
 On rappelle ici que notre vitesse n'est qu'entre 1 et 5 au lieu de 1 et 200 km/h pour éviter trop d'état (1 par vitesse...)
@@ -154,6 +154,8 @@ Pour palier ce problème, on crée un nouvel état "activation" qui est de type 
 
 `regulateur.activation --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)`
 
+**Cette propriété est vérifiée.**
+
 
 ### Deadlock
-`A[] not deadlock` est vérifiée : il n'y a pas de deadlock dans notre automate.
+`A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
