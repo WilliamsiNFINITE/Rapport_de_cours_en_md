@@ -137,3 +137,8 @@ Tant que le régulateur de vitesse est activé, le véhicule maintient la vitess
 `tous les chemins qui ne passent pas par frein ou accélérateur & régulateur.on --> la vitesse reste la même`
 
 ### SCS 15
+
+## Ecriture et test de propriétés
+### SCS-1
+On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> desired_speed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue).
+
