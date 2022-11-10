@@ -161,7 +161,7 @@ Mêmes propriétés que pour SCS-4&5; il suffit de mettre decrease et tout est b
 Ces deux exigences requièrent une application de temps pour déterminer de combien de dizaine de km/h on veut augmenter la vitesse. Pour des raisons de practicité de timer, nous ne l'avons pas implémenté, neanmoins comme les fonctions inc et dec fonctionnent, un peut supposer que si la manette envoie le signal avec le bon nombre de secondes, tout marchera bien.
 
 ### SCS-11
-
+Si on appuie sur inc ou dec alors qu'on est dans l'état "off" ou "standby", on arrive dans l'état "engaged" avec la vitesse courante égale à la vitesse voulue. On crée l'état "offtoEngage" pour vérifier cette propriété. `regulateur.offToEngage --> setVehicleSpeed==currentSpeed`
 
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
