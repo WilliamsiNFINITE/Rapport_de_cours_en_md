@@ -110,7 +110,7 @@ Si le régulateur de vitesse est désactivé et que la manette est levée ou bai
 
 Appuyer sur le bouton 4 désactive le régulateur de vitesse. setVehiceSpeed=0 indique à la voiture qu'il n'y a pas de vitesse à maintenir.
 
-`bouton 4 -> setVehicleSpeed =0`
+`bouton 4 -> setVehicleSpeed =0`Lorsque le frein est utilisé, le signal envoyé fait passer le régulateur en "standby" s'il était actif. Cela fait bien le travail décrit 
 
 ### SCS 13
 >The cruise control is activated using the cruise control lever according to Reqs. SCS-1 to SCS-12.
@@ -134,6 +134,10 @@ Nous n'avons donc rien à faire puisque c'est le moteur qui doit gérer cela.
 >By pushing the brake, the cruise control is deactivated until it is activated again.
 
 En freinant, le régulateur de vitesse est désactivé jusqu'à ce qu'on le réactive.
+### SCS 17
+>By pushing the control lever backwards, the cruise control is deactivated until it is activated again.
+
+Quand on désactive le régulateur, on arrive dans l'état "standby" jusqu'à ce qu'on le réactive.
 ## Ecriture et test de propriétés
 ### SCS-1
 - On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> setVehicleSpeed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue). **Cette propriété est vérifiée par notre modèle.**
