@@ -2,6 +2,7 @@
 <!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
 <nta>
 	<declaration>// Place global declarations here.
+
 int[0,255] brakePedal = 0; //  valeur comprise dans [0-255]
 int brakePressure = 0;
 
