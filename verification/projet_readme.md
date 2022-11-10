@@ -7,19 +7,7 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 
 * [Introduction](#Introduction)
 * [Traduction des vérifications](#Traduction-des-vérifications)
-  * [SCS 1](#SCS-1)
-  * [SCS 2](#SCS-2)
-  * [SCS 3](#SCS-3)
-  * [SCS 4](#SCS-4)
-  * [SCS 5](#SCS-5)
-  * [SCS 6](#SCS-6)
-  * [SCS 7](#SCS-7)
-  * [SCS 8](#SCS-8)
-  * [SCS 9](#SCS-9)
-  * [SCS 10](#SCS-10)
-  * [SCS 11](#SCS-11)
-  * [SCS 12](#SCS-12)
-  * [SCS 13](#SCS-13)
+* [Ecriture et test de propriétés](#Ecriture-et-test-de-propriétés)
 
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
@@ -168,6 +156,12 @@ Augmentation de 10km/h par une pression du bouton: on a decidé de ne pas faire 
 
 ### SCS-6
 Mêmes propriétés que pour SCS-4&5; il suffit de mettre decrease et tout est bien **vérifié**. La propriété devient par exemple `regulateur.DECREASE --> setVehicleSpeed==previousSetVehicleSpeed-1`
+
+### SCS-7, 8, 9 & 10
+Ces deux exigences requièrent une application de temps pour déterminer de combien de dizaine de km/h on veut augmenter la vitesse. Pour des raisons de practicité de timer, nous ne l'avons pas implémenté, neanmoins comme les fonctions inc et dec fonctionnent, un peut supposer que si la manette envoie le signal avec le bon nombre de secondes, tout marchera bien.
+
+### SCS-11
+
 
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
