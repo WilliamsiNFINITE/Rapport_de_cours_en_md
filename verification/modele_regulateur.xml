@@ -52,166 +52,162 @@ chan resume;
 		</transition>
 	</template>
 	<template>
-		<name>Control</name>
-		<declaration>int readSpeed;</declaration>
-		<location id="id1" x="0" y="0">
-		</location>
-		<init ref="id1"/>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id1"/>
-			<label kind="synchronisation" x="-128" y="104">speed?</label>
-			<label kind="assignment" x="-128" y="128">readSpeed = currentSpeed</label>
-			<nail x="-112" y="80"/>
-			<nail x="72" y="72"/>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id1"/>
-			<label kind="synchronisation" x="8" y="-128">deltaV!</label>
-			<nail x="-93" y="-102"/>
-			<nail x="127" y="-102"/>
-		</transition>
-	</template>
-	<template>
 		<name x="5" y="5">Regulateur</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id2" x="-153" y="-85">
+		<location id="id1" x="-153" y="-85">
 			<name x="-163" y="-119">standby</name>
 		</location>
-		<location id="id3" x="144" y="-93">
-			<name x="127" y="-136">engaged</name>
+		<location id="id2" x="280" y="-85">
+			<name x="263" y="-128">engaged</name>
 		</location>
-		<location id="id4" x="144" y="-25">
+		<location id="id3" x="280" y="-25">
+			<name x="255" y="-17">instruction</name>
 			<committed/>
 		</location>
-		<location id="id5" x="-408" y="-85">
+		<location id="id4" x="-408" y="-85">
 			<name x="-418" y="-119">off</name>
 		</location>
-		<location id="id6" x="-25" y="-271">
-			<name x="-59" y="-305">INCREASE</name>
+		<location id="id5" x="111" y="-271">
+			<name x="77" y="-305">INCREASE</name>
 			<committed/>
 		</location>
-		<location id="id7" x="170" y="-254">
-			<name x="144" y="-297">DECREASE</name>
+		<location id="id6" x="433" y="-272">
+			<name x="407" y="-315">DECREASE</name>
 			<committed/>
 		</location>
-		<location id="id8" x="-153" y="51">
+		<location id="id7" x="-153" y="51">
 			<name x="-187" y="60">activation</name>
 			<committed/>
 		</location>
-		<location id="id9" x="-153" y="178">
+		<location id="id8" x="-153" y="178">
 			<name x="-195" y="144">offToEngaged</name>
 			<committed/>
 		</location>
-		<init ref="id5"/>
-		<transition>
-			<source ref="id2"/>
-			<target ref="id9"/>
-			<label kind="synchronisation" x="-238" y="144">inc?</label>
-			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
-			<nail x="-246" y="178"/>
-		</transition>
-		<transition>
-			<source ref="id2"/>
-			<target ref="id9"/>
-			<label kind="synchronisation" x="-306" y="178">dec?</label>
-			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
-			<nail x="-297" y="178"/>
-		</transition>
-		<transition>
-			<source ref="id5"/>
-			<target ref="id9"/>
-			<label kind="synchronisation" x="-306" y="178">dec?</label>
-			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
-			<nail x="-297" y="178"/>
-		</transition>
+		<location id="id9" x="119" y="-85">
+			<committed/>
+		</location>
+		<init ref="id4"/>
 		<transition>
 			<source ref="id9"/>
-			<target ref="id3"/>
-			<nail x="-68" y="178"/>
+			<target ref="id1"/>
+			<label kind="assignment" x="-59" y="-85">setVehicleSpeed = 0</label>
 		</transition>
 		<transition>
-			<source ref="id5"/>
+			<source ref="id2"/>
 			<target ref="id9"/>
+			<label kind="synchronisation" x="204" y="-93">pause?</label>
+			<label kind="assignment" x="-85" y="-110">previousSetVehicleSpeed = setVehicleSpeed</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-323" y="110">currentSpeed!=0</label>
 			<label kind="synchronisation" x="-238" y="144">inc?</label>
 			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
 			<nail x="-246" y="178"/>
 		</transition>
 		<transition>
-			<source ref="id2"/>
+			<source ref="id1"/>
 			<target ref="id8"/>
-			<label kind="synchronisation" x="-179" y="-42">onChan?</label>
+			<label kind="guard" x="-323" y="110">currentSpeed!=0</label>
+			<label kind="synchronisation" x="-306" y="178">dec?</label>
+			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
+			<nail x="-297" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-323" y="110">currentSpeed!=0</label>
+			<label kind="synchronisation" x="-306" y="178">dec?</label>
+			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
+			<nail x="-297" y="178"/>
 		</transition>
 		<transition>
 			<source ref="id8"/>
-			<target ref="id3"/>
+			<target ref="id2"/>
+			<nail x="-68" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-323" y="110">currentSpeed!=0</label>
+			<label kind="synchronisation" x="-238" y="144">inc?</label>
+			<label kind="assignment" x="-518" y="161">setVehicleSpeed = currentSpeed</label>
+			<nail x="-246" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-179" y="-42">onChan?</label>
+			<label kind="assignment" x="-221" y="-25">setVehicleSpeed = previousSetVehicleSpeed</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id2"/>
 			<nail x="-68" y="51"/>
 		</transition>
 		<transition>
-			<source ref="id5"/>
-			<target ref="id8"/>
+			<source ref="id4"/>
+			<target ref="id7"/>
 			<label kind="guard" x="-484" y="-42">(currentSpeed &gt;= 1) || (setVehicleSpeed != 0)</label>
 			<label kind="synchronisation" x="-331" y="-8">onChan?</label>
 			<label kind="assignment" x="-442" y="-25">setVehicleSpeed = currentSpeed</label>
 			<nail x="-238" y="51"/>
 		</transition>
 		<transition>
-			<source ref="id7"/>
-			<target ref="id3"/>
-			<label kind="assignment" x="110" y="-314">setVehicleSpeed -=1</label>
-		</transition>
-		<transition>
-			<source ref="id3"/>
-			<target ref="id7"/>
-			<label kind="guard" x="119" y="-339">setVehicleSpeed &gt; 1</label>
-			<label kind="synchronisation" x="161" y="-365">dec?</label>
-			<label kind="assignment" x="59" y="-331">previousSetVehicleSpeed = setVehicleSpeed</label>
-			<nail x="178" y="-152"/>
-		</transition>
-		<transition>
 			<source ref="id6"/>
-			<target ref="id3"/>
-			<label kind="assignment" x="-93" y="-331">setVehicleSpeed +=1</label>
-			<nail x="59" y="-152"/>
+			<target ref="id2"/>
+			<label kind="assignment" x="373" y="-332">setVehicleSpeed -=1</label>
+			<nail x="373" y="-273"/>
 		</transition>
 		<transition>
-			<source ref="id3"/>
+			<source ref="id2"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-93" y="-365">setVehicleSpeed &lt; 5</label>
-			<label kind="synchronisation" x="-50" y="-382">inc?</label>
-			<label kind="assignment" x="-169" y="-348">previousSetVehicleSpeed = setVehicleSpeed</label>
+			<label kind="guard" x="382" y="-357">setVehicleSpeed &gt; 1</label>
+			<label kind="synchronisation" x="424" y="-383">dec?</label>
+			<label kind="assignment" x="322" y="-349">previousSetVehicleSpeed = setVehicleSpeed</label>
+			<nail x="340" y="-85"/>
 		</transition>
 		<transition>
-			<source ref="id3"/>
-			<target ref="id5"/>
-			<label kind="synchronisation" x="-178" y="-187">offChan?</label>
-			<label kind="assignment" x="-323" y="-170">setVehicleSpeed = previousSetVehicleSpeed = 0</label>
-			<nail x="-212" y="-212"/>
+			<source ref="id5"/>
+			<target ref="id2"/>
+			<label kind="assignment" x="43" y="-331">setVehicleSpeed +=1</label>
+			<nail x="212" y="-85"/>
 		</transition>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id5"/>
+			<label kind="guard" x="43" y="-365">setVehicleSpeed &lt; 5</label>
+			<label kind="synchronisation" x="86" y="-382">inc?</label>
+			<label kind="assignment" x="-33" y="-348">previousSetVehicleSpeed = setVehicleSpeed</label>
+			<nail x="178" y="-272"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-178" y="-187">offChan?</label>
+			<label kind="assignment" x="-416" y="-144">setVehicleSpeed = previousSetVehicleSpeed = 0</label>
+			<nail x="-51" y="-221"/>
+			<nail x="-229" y="-221"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
 			<label kind="synchronisation" x="-264" y="-102">offChan?</label>
-			<label kind="assignment" x="-306" y="-85">setVehicleSpeed = 0</label>
+			<label kind="assignment" x="-416" y="-144">setVehicleSpeed = previousSetVehicleSpeed = 0</label>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id2"/>
-			<label kind="synchronisation" x="-60" y="-102">pause?</label>
+			<label kind="synchronisation" x="229" y="-42">deltaV!</label>
+			<nail x="263" y="-50"/>
 		</transition>
 		<transition>
-			<source ref="id4"/>
+			<source ref="id2"/>
 			<target ref="id3"/>
-			<label kind="synchronisation" x="93" y="-42">deltaV!</label>
-			<nail x="127" y="-50"/>
-		</transition>
-		<transition>
-			<source ref="id3"/>
-			<target ref="id4"/>
-			<label kind="synchronisation" x="161" y="-67">speed?</label>
-			<label kind="assignment" x="161" y="-50">delta_v = setVehicleSpeed - currentSpeed</label>
-			<nail x="161" y="-50"/>
+			<label kind="synchronisation" x="297" y="-67">speed?</label>
+			<label kind="assignment" x="297" y="-50">delta_v = setVehicleSpeed - currentSpeed</label>
+			<nail x="297" y="-50"/>
 		</transition>
 	</template>
 	<template>
@@ -278,98 +274,67 @@ chan resume;
 	<template>
 		<name x="5" y="5">Frein</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id11" x="-263" y="-42">
-			<name x="-273" y="-76">off</name>
+		<location id="id11" x="-433" y="-42">
+			<name x="-443" y="-76">off</name>
 		</location>
-		<location id="id12" x="-161" y="-68">
-			<name x="-171" y="-102">brake</name>
+		<location id="id12" x="-127" y="-178">
+			<name x="-137" y="-212">brake</name>
+			<committed/>
 		</location>
-		<location id="id13" x="-161" y="-8">
-			<name x="-171" y="-42">emergency_brake</name>
+		<location id="id13" x="-102" y="-102">
+			<name x="-85" y="-102">emergency_brake</name>
 		</location>
 		<init ref="id11"/>
 		<transition>
 			<source ref="id11"/>
 			<target ref="id12"/>
-			<nail x="-212" y="-76"/>
-		</transition>
-		<transition>
-			<source ref="id13"/>
-			<target ref="id11"/>
-			<nail x="-229" y="-8"/>
-		</transition>
-		<transition>
-			<source ref="id12"/>
-			<target ref="id13"/>
-			<nail x="-144" y="-42"/>
-		</transition>
-		<transition>
-			<source ref="id13"/>
-			<target ref="id12"/>
+			<label kind="synchronisation" x="-323" y="-144">pause!</label>
+			<nail x="-246" y="-153"/>
 		</transition>
 		<transition>
 			<source ref="id12"/>
 			<target ref="id11"/>
-		</transition>
-		<transition>
-			<source ref="id11"/>
-			<target ref="id13"/>
 		</transition>
 	</template>
 	<template>
 		<name x="5" y="5">Acceleration</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id14" x="-110" y="-25">
+		<location id="id14" x="-119" y="-25">
+			<name x="-129" y="-59">off</name>
 		</location>
 		<location id="id15" x="8" y="-34">
-		</location>
-		<location id="id16" x="8" y="-34">
+			<name x="-2" y="-68">gas</name>
+			<committed/>
 		</location>
 		<init ref="id14"/>
 		<transition>
 			<source ref="id15"/>
-			<target ref="id15"/>
-			<nail x="59" y="-8"/>
-			<nail x="17" y="25"/>
-		</transition>
-		<transition>
-			<source ref="id16"/>
-			<target ref="id15"/>
-			<nail x="8" y="-42"/>
-			<nail x="34" y="-93"/>
-			<nail x="59" y="-59"/>
-		</transition>
-		<transition>
-			<source ref="id15"/>
-			<target ref="id16"/>
-		</transition>
-		<transition>
-			<source ref="id16"/>
 			<target ref="id14"/>
-			<nail x="-51" y="8"/>
-		</transition>
-		<transition>
-			<source ref="id15"/>
-			<target ref="id16"/>
-		</transition>
-		<transition>
-			<source ref="id16"/>
-			<target ref="id15"/>
 		</transition>
 		<transition>
 			<source ref="id14"/>
 			<target ref="id15"/>
-			<nail x="-59" y="-68"/>
+			<label kind="synchronisation" x="-76" y="-76">pause!</label>
+			<nail x="-59" y="-51"/>
 		</transition>
 	</template>
 	<system>engine = Engine1();
 regulateur = Regulateur();
 commodo = Commodo();
+frein = Frein();
 
-system engine, regulateur, commodo;</system>
+system engine, regulateur, commodo, frein;</system>
 	<queries>
 		<query>
 			<formula></formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>frein.brake --&gt; regulateur.standby</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>regulateur.standby --&gt; setVehicleSpeed == 0</formula>
 			<comment></comment>
 		</query>
 		<query>
@@ -390,10 +355,6 @@ system engine, regulateur, commodo;</system>
 		</query>
 		<query>
 			<formula>regulateur.engaged --&gt; setVehicleSpeed &lt; 6 &amp; setVehicleSpeed &gt; 0</formula>
-			<comment></comment>
-		</query>
-		<query>
-			<formula>regulateur.standby --&gt; setVehicleSpeed &lt; 6 &amp; setVehicleSpeed &gt; 0</formula>
 			<comment></comment>
 		</query>
 		<query>
