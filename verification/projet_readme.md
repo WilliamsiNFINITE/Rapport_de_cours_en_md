@@ -110,7 +110,7 @@ Si le régulateur de vitesse est désactivé et que la manette est levée ou bai
 
 Appuyer sur le bouton 4 désactive le régulateur de vitesse. setVehiceSpeed=0 indique à la voiture qu'il n'y a pas de vitesse à maintenir.
 
-`bouton 4 -> setVehicleSpeed =0`
+`bouton 4 -> setVehicleSpeed =0`Lorsque le frein est utilisé, le signal envoyé fait passer le régulateur en "standby" s'il était actif. Cela fait bien le travail décrit 
 
 ### SCS 13
 >The cruise control is activated using the cruise control lever according to Reqs. SCS-1 to SCS-12.
@@ -125,14 +125,24 @@ Tant que le régulateur de vitesse est activé, le véhicule maintient la vitess
 `tous les chemins qui ne passent pas par frein ou accélérateur & régulateur.on --> la vitesse reste la même`
 
 ### SCS 15
+>If the driver pushes the gas pedal and by the position of the gas pedal more acceleration is demanded than by the cruise control, the acceleration setting as demanded by the driver is adopted. Note: This handling is done by the engine autonomously.
 
+Si le conducteur appuie plus fort sur l'accélérateur que l'accélération demandée par le régulateur, l'accélération demandée par le conducteur est adoptée. Note: Cela est géré de manière autonome par le moteur.
+Nous n'avons donc rien à faire puisque c'est le moteur qui doit gérer cela.
+
+### SCS 16
+>By pushing the brake, the cruise control is deactivated until it is activated again.
+
+En freinant, le régulateur de vitesse est désactivé jusqu'à ce qu'on le réactive.
+### SCS 17
+>By pushing the control lever backwards, the cruise control is deactivated until it is activated again.
+
+Quand on désactive le régulateur, on arrive dans l'état "standby" jusqu'à ce qu'on le réactive.
 ## Ecriture et test de propriétés
 ### SCS-1
 - On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> setVehicleSpeed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue). **Cette propriété est vérifiée par notre modèle.**
-- La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0` et `regulateur.standby-->setVehicleSpeed<6 & setVehicleSpeed>0`.
-
+- La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0`.
 On rappelle ici que notre vitesse n'est qu'entre 1 et 5 au lieu de 1 et 200 km/h pour éviter trop d'état (1 par vitesse...)
-
 ### SCS-2
 On veut que quand on active le régulateur, pour la première fois, la vitesse désirée soit celle actuelle ou que la précédente si jamais il y en a déjà une d'enregistrée. Cela veut dire que quand on passe de l'état "standby" ou "off" à "engaged", la vitesse désirée est soit la vitesse courante (et alors la vitesse désirée précédente est nulle) soit la vitesse précédente désirée. On peut donc dire que quand on arrive dans l'état "engaged" 
 `regulateur.engaged --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)` La permière partie du OU est pour le cas ou on vient de l'état "standby" et la deuwième de l'état "off" (la vitesse précédente est de 0).
@@ -141,28 +151,32 @@ Cette propriété n'est pas vérifiée car ce n'est pas `regulateur.engaged` qu'
 Pour palier ce problème, on crée un nouvel état "activation" qui est de type "commit" c'est-à-dire atomique, et qui prend les deux transitions arrivant des états "off" et "standby" et les redirige vers l'état "engaged". Ainsi, on peut transformer la propriété en modifiant la condition de l'implication : `regulateur.engaged` devient `regulateur.activation` et la propriété finale est : 
 
 `regulateur.activation --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)`
-
 **Cette propriété est vérifiée par notre modèle.**
 ### SCS-3
 Si la vitesse est inférieure à 20 km/h (**remplacée ici par la valeur 1**) appuyer sur le bouton 1 n'active pas le régulateur de vitesse.
 **Cette propriété est vérifiée** par la garde de l'état "off" vers "activation" : `currentSpeed>=1 || setVehicleSpeed!=0`.
-
 ### SCS-4
 Augmentation de 1km/h par une pression du bouton: on a ajouté un état "INCREASE" qui nous permet de vérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 1. La propriété est donc : `regulateur.INCREASE --> setVehicleSpeed==previousSetVehicleSpeed+1`
 **Cette propriété est vérifiée par notre modèle.**
-
 ### SCS-5 
 Augmentation de 10km/h par une pression du bouton: on a decidé de ne pas faire cet état afin de garantir la concision de notre modèle. En pratique il aurait été question d'ajouter un état "INCREASE_7", similaire à l'état "INCREASE" qui nous permet de vérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 10. La propriété est donc : `regulateur.INCREASE_7 --> setVehicleSpeed==previousSetVehicleSpeed+10`
-
 ### SCS-6
 Mêmes propriétés que pour SCS-4&5; il suffit de mettre decrease et tout est bien **vérifié**. La propriété devient par exemple `regulateur.DECREASE --> setVehicleSpeed==previousSetVehicleSpeed-1`
-
 ### SCS-7, 8, 9 & 10
 Ces deux exigences requièrent une application de temps pour déterminer de combien de dizaine de km/h on veut augmenter la vitesse. Pour des raisons de practicité de timer, nous ne l'avons pas implémenté, neanmoins comme les fonctions inc et dec fonctionnent, un peut supposer que si la manette envoie le signal avec le bon nombre de secondes, tout marchera bien.
-
 ### SCS-11
 Si on appuie sur inc ou dec alors qu'on est dans l'état "off" ou "standby", on arrive dans l'état "engaged" avec la vitesse courante égale à la vitesse voulue. On crée l'état "offtoEngage" pour vérifier cette propriété. `regulateur.offToEngage --> setVehicleSpeed==currentSpeed`
+### SCS-12
+L'appui sur le bouton 4 met le régulateur en standby : c'est le rôle de la transition "engaged" vers "standby" avec le channel `pause`. On vérifie ensuite que si on est dans l'état "standby", ie le régulateur est désactivé, la vitesse voulue est bien nulle. `regulateur.standby --> setVehicleSpeed==0`.
+### SCS-13
+C'est l'ensemble de SCS-1 & SCS-2.
+### SCS-14
+Si on n'appuie pas sur le frein ou l'accélérateur, on ne quite pas la boucle "engaged-incstructions" et donc la vitesse du véhicule va se mettre sur la vitesse désirée, à la fréquence à laquelle on passe par la boucle instruction (ie on pourrait donner plusieurs instructions par la commande avant que le régulateur donne des consignes au moteur).
+### SCS-15
+Rien à faire
+### SCS-16
+Lorsque le frein est utilisé, le signal envoyé fait passer le régulateur en "standby" s'il était actif. Cela fait bien le travail décrit pas l'éxigence.
+### SCS-17
 
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
-
