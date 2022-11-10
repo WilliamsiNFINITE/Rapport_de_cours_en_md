@@ -12,16 +12,39 @@ Ces exigences se trouvent dans le chapitre [5.4 Software Functions](https://mood
 ## Introduction
 Nous allons procéder de la manière suivante : il y a deux opérateurs principaux, la commande et le régulateur en lui-même. La commande est toujours dans le même état (p. 15, "The lever always returns to the neutral position when not touched by the user."). Nous allons donc créer un automate pour la manette et un autre pour le régulateur, et c'est ce dernier qui effectuera les actions demandées par le conducteur.
 
-Déclarations :
+Déclarations des variables dans UPPAAL:
 
-- setSpeed ()
-- brakePedal (0-255)
-- brakePressure ()
-- engineOn (True, False)
-- speedLimiterSwitchOn (True,False)
-- setVehicleSpeed (>0)
-- gasPedal (max = 45° = maximum setVehicleSpeed)
-- d (deceleration = brakePedal/37,5
+```
+// Variable de frein
+int[0,255] brakePedal = 0; //  valeur comprise dans [0-255]
+int brakePressure = 0;
+
+// Variable du moteur
+bool engineOn = false; 
+int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
+
+// Variable de vitesse
+int setVehicleSpeed  = 0; // Vitesse désirée
+int previousSetVehicleSpeed = 0; // Ancienne vitesse désirée
+int currentSpeed=1; // Vitesse de la voiture
+bool speedLimiterSwitchOn = false; // Pour activer la fonctionnalité adaptative du régulateur
+int delta_v; // = setVehicleSpeed - currentSpeed
+
+// Channel
+chan deltaV;
+chan speed;
+chan onChan;
+chan offChan;
+chan inc;
+chan dec;
+chan set; 
+chan commodoStop;
+chan startChan;
+chan freinStop;
+chan pause;
+chan resume;
+
+```
 
 **Attention, il n'y a pas de lien entre gasPedal (ou setVehicleSpeed) et la vitesse du véhicule.**
 
