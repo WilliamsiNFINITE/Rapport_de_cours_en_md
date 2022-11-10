@@ -28,7 +28,7 @@ int[0,45] gasPedal = 0; // valeur comprise dans [0;45] // non utilisé
 int setVehicleSpeed  = 0; // Vitesse désirée
 int previousSetVehicleSpeed = 0; // Ancienne vitesse désirée
 int currentSpeed=1; // Vitesse de la voiture
-bool speedLimiterSwitchOn = false; // Pour activer la fonctionnalité adaptative du régulateur
+bool speedLimiterSwitchOn = false; // Pour activer la fonctionnalité de limitateur
 int delta_v; // = setVehicleSpeed - currentSpeed
 
 // Channel
