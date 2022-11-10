@@ -15,13 +15,14 @@ Nous allons procéder de la manière suivante : il y a deux opérateurs principa
 Déclarations des variables dans UPPAAL:
 
 ```
+
 // Variable de frein
-int[0,255] brakePedal = 0; //  valeur comprise dans [0-255]
-int brakePressure = 0;
+int[0,255] brakePedal = 0; //  valeur comprise dans [0-255] // non utilisé
+int brakePressure = 0; // non utilisé
 
 // Variable du moteur
-bool engineOn = false; 
-int[0,45] gasPedal = 0; // valeur comprise dans [0;45]
+bool engineOn = false; // non utilisé
+int[0,45] gasPedal = 0; // valeur comprise dans [0;45] // non utilisé
 
 // Variable de vitesse
 int setVehicleSpeed  = 0; // Vitesse désirée
@@ -37,12 +38,12 @@ chan onChan;
 chan offChan;
 chan inc;
 chan dec;
-chan set; 
-chan commodoStop;
-chan startChan;
-chan freinStop;
-chan pause;
-chan resume;
+chan set; // non utilisé
+chan commodoStop;// non utilisé
+chan startChan; // non utilisé
+chan freinStop; // non utilisé
+chan pause; 
+chan resume; // non utilisé
 
 ```
 
