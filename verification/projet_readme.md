@@ -49,7 +49,8 @@ chan resume; // non utilisé
 
 **Attention, il n'y a pas de lien entre gasPedal (ou setVehicleSpeed) et la vitesse du véhicule.**
 
-
+Nous n'avons pas fait toutes les commandes dans le régulateur : en effet nous nous sommes limités à une augmentation ou une diminution de 1 km/h de la vitesse désirée. Nous n'avons pas fait les commandes liées aux dizaines de km/h qui nous demanderaient de refaire les même méchanismes pour une différente vitesse, de même cela nous demanderait de mutliples vérifications pour chaque vitesse que nous avons entre 1 et 200 km/h.
+Nous avons fait de même avec le "maintien appuyé des leviers de commadne", mais le fait que l'augmentation "simple" marche nous permet de penser qu'il ne s'agit que de créer un nouveau signal dans une nouvelle boucle qui part de l'état "engaged" vers lui-même qui met à jour la vitesse désirée.
 
 ## Traduction des vérifications
 ### SCS 1
