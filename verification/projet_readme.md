@@ -166,7 +166,8 @@ Augmentation de 1km/h par une pression du bouton: on a ajouté un état "INCREAS
 ### SCS-5 
 Augmentation de 10km/h par une pression du bouton: on a decidé de ne pas faire cet état afin de garantir la concision de notre modèle. En pratique il aurait été question d'ajouter un état "INCREASE_7", similaire à l'état "INCREASE" qui nous permet de vérifier que si on passe par cet état, c'est bien pour augmenter la vitesse de 10. La propriété est donc : `regulateur.INCREASE_7 --> setVehicleSpeed==previousSetVehicleSpeed+10`
 
-
+### SCS-6
+Mêmes propriétés que pour SCS-4&5; il suffit de mettre decrease et tout est bien **vérifié**. La propriété devient par exemple `regulateur.DECREASE --> setVehicleSpeed==previousSetVehicleSpeed-1`
 
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
