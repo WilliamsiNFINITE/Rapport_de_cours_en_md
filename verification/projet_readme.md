@@ -166,6 +166,9 @@ Si on appuie sur inc ou dec alors qu'on est dans l'état "off" ou "standby", on 
 ### SCS-12
 L'appui sur le bouton 4 met le régulateur en standby : c'est le rôle de la transition "engaged" vers "standby" avec le channel `pause`. On vérifie ensuite que si on est dans l'état "standby", ie le régulateur est désactivé, la vitesse voulue est bien nulle. `regulateur.standby --> setVehicleSpeed==0`.
 
+### SCS-13
+C'est l'ensemble de SCS-1 & SCS-2.
+
 ### Deadlock
 `A[] not deadlock` est **vérifiée** : il n'y a pas de deadlock dans notre automate.
 
