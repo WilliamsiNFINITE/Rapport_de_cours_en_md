@@ -137,8 +137,7 @@ En freinant, le régulateur de vitesse est désactivé jusqu'à ce qu'on le réa
 ## Ecriture et test de propriétés
 ### SCS-1
 - On veut d'abord que `regulateur.off --> desired_speed==0` au démarrage. Or lorsuq'on éteint le régulateur, celui-ci garde en mémoire la vitesse précédente et donc la première fois qu'on l'éteint, il reviendrait dans l'état `off` sans que la vitesse voulue soit nulle. Pour pallier ce problème, on divise l'état "off" en deux : un état initial que l'on quitte lorsqu'on active le rgulateur la première fois, et un autre "en pause" qui permet de sauvegarder la vitese voulue. Ainsi, la propriété se transforme en : `regulateur.off --> setVehicleSpeed==0` (on a créé l'état `standby` qui mémorise la vitesse voulue). **Cette propriété est vérifiée par notre modèle.**
-- La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0` et `regulateur.standby-->setVehicleSpeed<6 & setVehicleSpeed>0`.
-
+- La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0`.
 On rappelle ici que notre vitesse n'est qu'entre 1 et 5 au lieu de 1 et 200 km/h pour éviter trop d'état (1 par vitesse...)
 ### SCS-2
 On veut que quand on active le régulateur, pour la première fois, la vitesse désirée soit celle actuelle ou que la précédente si jamais il y en a déjà une d'enregistrée. Cela veut dire que quand on passe de l'état "standby" ou "off" à "engaged", la vitesse désirée est soit la vitesse courante (et alors la vitesse désirée précédente est nulle) soit la vitesse précédente désirée. On peut donc dire que quand on arrive dans l'état "engaged" 
