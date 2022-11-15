@@ -12,7 +12,24 @@ Ce rapport documente la manière dont Thalul et moi même, Williams, avons réal
 ## Installation de Buildroot
 
 - A quoi sert chacun des paquets ? 
-  - Si
+  - sed
+  - make
+  - binutils
+  - gcc
+  - g++
+  - bash
+  - patch
+  - gzip
+  - bzip2
+  - perl
+  - tar
+  - cpio
+  - python
+  - unzip
+  - rsync
+  - wget
+  - libncurses-dev
+  - libssl-dev
 
 ## Installation de l environnement embarque
 
