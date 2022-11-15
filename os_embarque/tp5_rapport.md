@@ -11,7 +11,8 @@ Ce rapport documente la manière dont Thalul et moi même, Williams, avons réal
 
 ## Installation de Buildroot
 
-- 
+- A quoi sert chacun des paquets ? 
+  - Si
 
 ## Installation de l environnement embarque
 
