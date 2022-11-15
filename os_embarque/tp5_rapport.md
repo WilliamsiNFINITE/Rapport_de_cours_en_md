@@ -17,8 +17,8 @@ Ce rapport documente la manière dont Thalul et moi même, Williams, avons réal
   - [binutils](https://doc.ubuntu-fr.org/tutoriel/compilation_croisee) : Le compilateur comporte deux parties : les binutils et gcc. Les binutils comportent les outils de gestion comme ld ou ar.
   - [gcc](https://doc.ubuntu-fr.org/gcc) : GCC (GNU Compiler Collection) est une suite de logiciels libres de compilation. On l'utilise dans le monde Linux dès que l'on veut transcrire du code source en langage machine. gcc correspond à l'outil de compilation en C
   - [g++](https://doc.ubuntu-fr.org/gcc) : Identique à gcc pour le langage C++.
-  - [bash](https://doc.ubuntu-fr.org/bash) : 
-  - [patch]
+  - [bash](https://doc.ubuntu-fr.org/bash) : BASH est un shell. C'est le shell de base utilisé dans le terminal (Voir [Shell](https://doc.ubuntu-fr.org/shell))
+  - [patch](https://doc.ubuntu-fr.org/patch) : Patch permet d'appliquer un patch obtenu au moyen d'un diff (svn diff, git diff, …)
   - [gzip]
   - [bzip2]
   - [perl]
