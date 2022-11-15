@@ -19,9 +19,9 @@ Ce rapport documente la manière dont Thalul et moi même, Williams, avons réal
   - [g++](https://doc.ubuntu-fr.org/gcc) : Identique à gcc pour le langage C++.
   - [bash](https://doc.ubuntu-fr.org/bash) : BASH est un shell. C'est le shell de base utilisé dans le terminal (Voir [Shell](https://doc.ubuntu-fr.org/shell))
   - [patch](https://doc.ubuntu-fr.org/patch) : Patch permet d'appliquer un patch obtenu au moyen d'un diff (svn diff, git diff, …)
-  - [gzip]
-  - [bzip2]
-  - [perl]
+  - [gzip](https://doc.ubuntu-fr.org/archivage) : Package qui s'occupe des archives
+  - [bzip2](https://doc.ubuntu-fr.org/tutoriel/reparer_une_archive_corrompue) : Package qui s'occupe des archives. 
+  - [perl]() : 
   - [tar]
   - [cpio]
   - [python]
