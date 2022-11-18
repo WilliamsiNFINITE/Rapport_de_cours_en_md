@@ -171,7 +171,7 @@ Quand on désactive le régulateur, on arrive dans l'état "standby" jusqu'à ce
 - La valeur de la vitesse est entre 1 et 200 km/h: lorsqu'on a activé le régulateur de vitesse (état "engaged"), la vitesse est entre 1 et 200 km/h. On les traduit ainsi : `regulateur.engaged-->setVehicleSpeed<6 & setVehicleSpeed>0`.
 On rappelle ici que notre vitesse n'est qu'entre 1 et 5 au lieu de 1 et 200 km/h pour éviter trop d'état (1 par vitesse...)
 ### SCS-2
-On veut que quand on active le régulateur, pour la première fois, la vitesse désirée soit celle actuelle ou que la précédente si jamais il y en a déjà une d'enregistrée. Cela veut dire que quand on passe de l'état "standby" ou "off" à "engaged", la vitesse désirée est soit la vitesse courante (et alors la vitesse désirée précédente est nulle) soit la vitesse précédente désirée. On peut donc dire que quand on arrive dans l'état "engaged" 
+On veut que quand on active le régulateur, pour la première fois, la vitesse désirée soit celle actuelle ou la précédente si jamais il y en a déjà une d'enregistrée. Cela veut dire que quand on passe de l'état "standby" ou "off" à "engaged", la vitesse désirée est soit la vitesse courante (et alors la vitesse désirée précédente est nulle) soit la vitesse précédente désirée. On peut donc dire que quand on arrive dans l'état "engaged" 
 `regulateur.engaged --> (setVehicleSpeed==currentSpeed & previousSetVehicleSpeed==0) || (setvehicleSpeed==previousSetVehicleSpeed)` La permière partie du OU est pour le cas ou on vient de l'état "standby" et la deuxième de l'état "off" (la vitesse précédente est de 0).
 
 Cette propriété n'est pas vérifiée car ce n'est pas `regulateur.engaged` qu'il faut mais `quand on arrive sur regulateur.engaged en venant de "off" ou "standby"`
