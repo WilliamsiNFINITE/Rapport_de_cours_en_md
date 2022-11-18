@@ -244,8 +244,33 @@ L’objectif initial du logiciel Apache Tomcat est d’héberger et de déployer
 
 Exploit : [https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy)
 
+On aurait pû utiliser Apache Tomcat User Enumeration.
+
 Payload : [Windows Meterpreter (Reflective Injection), Reverse TCP Stager - Metasploit](https://www.infosecmatter.com/metasploit-module-library/?mm=payload/windows/meterpreter/reverse_tcp)
 
+## Question 19
+
+exploit
+
 ## Etude d une machine libre
+
+### Question 20
+
+D'abord on va isoler la machine. On va donc essayer de voir si elle est affichée avec la commande **sudo netdiscover**
+
+```console
+Currently scanning: 192.168.84.0/16   |   Screen View: Unique Hosts                                        
+                                                                                                            
+ 9 Captured ARP Req/Rep packets, from 1 hosts.   Total size: 540                                            
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+ -----------------------------------------------------------------------------
+ 192.168.141.1   00:50:56:c0:00:08      9     540  VMware, Inc.                                             
+
+```
+
+Je vérifie que l'IP est accessible avec un ping. J'ai ping mais ce n'est pas fructueux. En tout cas, en vu des informations, on va partir du principe que c'est la bonne machine.
+
+Je fais ensuite un **nmap -A -sV 198.168.141.1** pour voir les ouvertures.
 
 
