@@ -45,6 +45,8 @@ est le ttyUSB0. Quelle différence y a-t-il entre ce port et le port utilisé pr
   - ttyUSB0 est le périphérique pour le premier convertisseur série USB. En utilisant un câble série USB, on  utilise un ttyUSBn pour nous connecter au port série du peripherique.
   - Tandis que le ttyAMA0 est le périphérique pour le premier port série sur l'architecture ARM.
 
+Remarque : Lorsque  nous sommes censé avoir un noyau en version 5.3.14, en pratique, nous en avons un de version 4.19.94
+
 ## Communication avec la carte
 
 - Qu’est-ce que le protocole tftp ?
