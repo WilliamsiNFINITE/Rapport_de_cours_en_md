@@ -259,18 +259,121 @@ exploit
 D'abord on va isoler la machine. On va donc essayer de voir si elle est affichée avec la commande **sudo netdiscover**
 
 ```console
-Currently scanning: 192.168.84.0/16   |   Screen View: Unique Hosts                                        
-                                                                                                            
- 9 Captured ARP Req/Rep packets, from 1 hosts.   Total size: 540                                            
+Currently scanning: 192.168.52.0/16   |   Screen View: Unique Hosts                                               
+                                                                                                                   
+ 4 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 240                                                   
  _____________________________________________________________________________
    IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
  -----------------------------------------------------------------------------
- 192.168.141.1   00:50:56:c0:00:08      9     540  VMware, Inc.                                             
+ 192.168.141.133 00:0c:29:1d:24:3a      2     120  VMware, Inc.                                                    
+ 192.168.141.2   00:50:56:f0:77:77      1      60  VMware, Inc.                                                    
+ 192.168.141.1   00:50:56:c0:00:08      1      60  VMware, Inc.                                                    
+
 
 ```
 
-Je vérifie que l'IP est accessible avec un ping. J'ai ping mais ce n'est pas fructueux. En tout cas, en vu des informations, on va partir du principe que c'est la bonne machine.
+Je vérifie que l'IP (192.168.141.1) est accessible avec un ping. J'ai ping mais ce n'est pas fructueux. En tout cas, en vu des informations, on va partir du principe que c'est la bonne machine. 
 
-Je fais ensuite un **nmap -A -sV 198.168.141.1** pour voir les ouvertures.
+A posteriori (et avec les indications du profs, en rentrant 192.168.141.1 dans mon navigateur), je me rends compte que ce n'est pas la bonne machine.
+Par contre avec la machine 192.168.141.2, j'arrive à **ping**. De même pour l'ip 192.168.141.133
+
+Dans mon navidateur en entrant 192.168.141.133 on arrive sur la page suivante :
+
+![image](https://user-images.githubusercontent.com/91114817/202677490-f1b935e8-1bcb-40e5-aa86-757dacf90ba9.png)
+
+Je fais ensuite un **nmap -A -sV -sC ip_machine_cible** pour voir les ouvertures.
+
+```console
+┌──(hoarauwi㉿kali)-[~/Desktop/folder test]
+└─$ nmap -A -sV  192.168.141.2 
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-18 10:00 GMT
+Nmap scan report for 192.168.141.2
+Host is up (0.00021s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE    SERVICE VERSION
+53/tcp filtered domain
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.49 seconds
+
+```
+
+```console
+┌──(hoarauwi㉿kali)-[~/Desktop/folder test]
+└─$ nmap -A -sV  192.168.141.133 
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-18 10:12 GMT
+Nmap scan report for 192.168.141.133
+Host is up (0.00080s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 7f:55:2d:63:a8:86:4f:90:1f:05:3c:c9:9f:40:b3:f2 (RSA)
+|   256 e9:71:11:ed:17:fa:48:06:a7:6b:5b:b6:0e:1b:11:b8 (ECDSA)
+|_  256 db:74:42:c4:37:c3:ae:a0:5c:30:26:cb:1a:ef:76:52 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| 31K   2020-12-01 11:23  skeylogger
+|_
+|_http-title: Index of /
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.66 seconds
+
+```
+
+Je vais donc voir ce que je peux faire avec le fichier skeylogger que j'ai téléchargé depuis l'url 192.168.141.133.
+
+J'execute **cat skeylogger** je j'obtiens :
+
+```console
+┌──(hoarauwi㉿kali)-[~/Downloads]
+└─$ cat skeylogger
+ELF>�!@�q@8
+           @#"@@@h�����   ��00088�=�M�M�
+�
+�=�M�M����DDP�td�4�4�4��Q�tdR�td�=�M�M▒▒/lib64/ld-linux-x86-64.so.2GNU�"�,�#���A��▒����kߔGNU���e�m�;� RWl�.x QXL�5� 
+                                                                                                                    ^� �e��"exitfopendaemonpopenstrdup__assert_failprintffget
+```
+
+Donc à la place faut utiliser **string**
+
+```console
+┌──(hoarauwi㉿kali)-[~/Desktop/folder test]
+└─$ strings skeylogger
+...
+Could not determine keyboard device file
+ZHJhY2FyeXMK
+Usage: skeylogger [OPTION]
+Logs pressed keys
+  -h, --help            Displays this help message
+  -v, --version         Displays version information
+  -l, --logfile         Path to the logfile
+  -d, --device          Path to device file (/dev/input/eventX)
+Simple Key Logger version 0.0.1
+
+...
+```
+
+En décodant ZHJhY2FyeXMK en base64, on trouve le mot de passe : dracarys.
+On peut se connecter avec **ssh daenerys@192.168.141.133**
+
+Je commence avec **ls -a**. Ensuite je visite le **.bash_history** (pour voir les commandes faites)
+```console
+daenerys@osboxes:~$ cat .bash_history 
+cd .local/
+ls
+cd share/
+ls
+...
+```
+
+Je visite le répertoire qui a été visité avant.
+Je tombe sur une archive que je dezip
+Je **cat** le fichier dézipé et il me donne le mot de passe pour le root (khaldrogo). Ensuite je me donne les privilèges root
+**su root** password : kahldrogo
 
 
