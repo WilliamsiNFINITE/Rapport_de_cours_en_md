@@ -200,6 +200,44 @@ PORT     STATE SERVICE    VERSION
 
 ```
 
+On utilise la commande vue en question 2 **search Samba** : 25 différents exploit ont été trouvés.
+
+L'OS de la metaploitable est Ubuntu 8.04
+
+### Question 14
+
+Cette version de l'OS d'Ubuntu esst sortie en avril 2008. Nous allons donc nous intéresser aux vulnérabilités de l'année 2007.
+
+```console
+
+#   Name                                                 Disclosure Date  Rank       Check  Description
+-   ----                                                 ---------------  ----       -----  -----------
+8   exploit/multi/samba/usermap_script                   2007-05-14       excellent  No     Samba "username map script" Command Execution
+17  exploit/linux/samba/lsa_transnames_heap              2007-05-14       good       Yes    Samba lsa_io_trans_names Heap Overflow
+18  exploit/osx/samba/lsa_transnames_heap                2007-05-14       average    No     Samba lsa_io_trans_names Heap Overflow
+19  exploit/solaris/samba/lsa_transnames_heap            2007-05-14       average    No     Samba lsa_io_trans_names Heap Overflow
+
+```
+
+### Question 15
+
+La vulnérabilité que nous allons exploiter s'appelle [Samba "username map script" Command Execution - Metasploit](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/samba/usermap_script). 
+EN fait non. C'est pas cet exploit là mais celui ci : [https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy)
+
+
+Options: 
+HttpPassword : tomcat
+HttpUsername : tomcat
+PATH : /manager
+SSL : false
+
+### Question 16
+
+L'exploit retourne une erreur avec les options ci dessus.
+
+### Question 17
+
+
 
 ## Etude d une machine libre
 
