@@ -222,8 +222,6 @@ Cette version de l'OS d'Ubuntu esst sortie en avril 2008. Nous allons donc nous 
 ### Question 15
 
 La vulnérabilité que nous allons exploiter s'appelle [Samba "username map script" Command Execution - Metasploit](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/samba/usermap_script). 
-EN fait non. C'est pas cet exploit là mais celui ci : [https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy)
-
 
 Options: 
 HttpPassword : tomcat
@@ -237,7 +235,17 @@ L'exploit retourne une erreur avec les options ci dessus.
 
 ### Question 17
 
+[lien](https://www.syloe.com/glossaire/apache-tomcat/#:~:text=Apache%20Tomcat%20est%20un%20logiciel,de%20d%C3%A9ployer%20les%20servlets%20Java.)
+Apache Tomcat est un logiciel de serveur d’applications web open source conçu pour la programmation en Java et développé et maintenu par Jakarta, le groupe de projets open source Java de la fondation Apache.
 
+L’objectif initial du logiciel Apache Tomcat est d’héberger et de déployer les servlets Java.
+
+### Question 18 
+
+Exploit : [https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy](https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/http/tomcat_mgr_deploy)
+
+Payload : [Windows Meterpreter (Reflective Injection), Reverse TCP Stager - Metasploit](https://www.infosecmatter.com/metasploit-module-library/?mm=payload/windows/meterpreter/reverse_tcp)
 
 ## Etude d une machine libre
+
 
