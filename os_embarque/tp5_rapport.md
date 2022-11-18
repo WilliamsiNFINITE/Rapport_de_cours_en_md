@@ -39,3 +39,22 @@ est le ttyUSB0. Quelle différence y a-t-il entre ce port et le port utilisé pr
   - Tandis que le ttyAMA0 est le périphérique pour le premier port série sur l'architecture ARM.
 
 ## Communication avec la carte
+
+- Qu’est-ce que le protocole tftp ?
+  - Le Trivial File Transfer Protocol, TFTP pour faire court, est un protocole client-serveur très simple, qui gère les transferts de fichiers dans les réseaux informatiques. Par défaut, le protocole TFTP est basé sur le protocole de transport simplifié UDP (User Datagram Protocol) qui permet d’envoyer des données entre partenaires de communication sans partager une connexion fixe. Il est également possible d’implémenter le TFTP basé sur d’autres protocoles.
+
+- Expliquons les etapes d'installation de tftp sur notre carte
+  - On commence par installer les package tftp, le daemon tftp et aussi le daemon xinetd pour notre server.
+  - Nous créons ensuite le répertoire /tftpboot, c'est le repertoire de dépôt de fichiers à transmettre vers la carte, on prend soin aussi de donner tous les droits d'access sur le repertoire.
+  - On creer un fichier de confguration pour le serveur tftp en specifiant les parametres :
+    ```
+      {
+       socket_type = dgram
+       protocol = udp
+       wait = yes
+       user = root
+       server = /usr/sbin/in.tftpd
+       server_args = -s /tftpboot
+      }
+    ```
+  - Puis on redemare le daemon xinet pour prendre en compte nos modifications
