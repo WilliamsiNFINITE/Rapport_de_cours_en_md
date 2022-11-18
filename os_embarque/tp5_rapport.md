@@ -33,6 +33,9 @@ Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams 
 
 ## Installation de l environnement embarque
 
-- 
+- Vous pouvez lancer GTKterm. La configuration à mettre est différente de la précédente. Le port à utiliser
+est le ttyUSB0. Quelle différence y a-t-il entre ce port et le port utilisé précédemment (ttyACM0) ?
+  - ttyUSB0 est le périphérique pour le premier convertisseur série USB. En utilisant un câble série USB, on  utilise un ttyUSBn pour nous connecter au port série du peripherique.
+  - Tandis que le ttyAMA0 est le périphérique pour le premier port série sur l'architecture ARM.
 
 ## Communication avec la carte
