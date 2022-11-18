@@ -1,6 +1,6 @@
 # Compte rendu du TP5 :  BUILDROOT
 
-Ce rapport documente la manière dont Thalul et moi même, Williams, avons réalisé le TP5 sur Buildroot.
+Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams HOARAU, avons réalisé le TP5 sur Buildroot.
 
 ## Sommaire
 
@@ -21,15 +21,15 @@ Ce rapport documente la manière dont Thalul et moi même, Williams, avons réal
   - [patch](https://doc.ubuntu-fr.org/patch) : Patch permet d'appliquer un patch obtenu au moyen d'un diff (svn diff, git diff, …)
   - [gzip](https://doc.ubuntu-fr.org/archivage) : Package qui s'occupe des archives
   - [bzip2](https://doc.ubuntu-fr.org/tutoriel/reparer_une_archive_corrompue) : Package qui s'occupe des archives. 
-  - [perl]() : 
-  - [tar]
-  - [cpio]
-  - [python]
-  - [unzip]
-  - [rsync]
-  - [wget]
+  - [perl] : Perl est un langage de programmation polyvalent, interprété de haut niveau et dynamique
+  - [tar](https://doc.ubuntu-fr.org/tar) : C'est un outil tres puissants qui permet de creer et de manipuler des archives.
+  - [cpio]: CPIO signifie « copy in, copy out ». Il est utilisé pour traiter les fichiers d'archive comme *.cpio ou *.tar. Cette commande permet de copier des fichiers vers et depuis des archives.
+  - [python]: Python est un langage de programation, de haut niveau et dynamique
+  - [unzip]: C'est un outil qui nous permet de deziper des archives
+  - [rsync]: rsync est un utilitaire permettant de transférer et de synchroniser efficacement des fichiers entre un ordinateur et un lecteur de stockage et entre des ordinateurs en réseau en comparant les temps de modification et les tailles des fichiers
+  - [wget]: GNU Wget est un logiciel libre permettant de récupérer des fichiers en utilisant HTTP, HTTPS, FTP et FTPS.
   - [libncurses-dev]
-  - [libssl-dev]
+  - [libssl-dev]: libssl-dev fait partie de l'implémentation par le projet OpenSSL des protocoles cryptographiques SSL et TLS pour une communication sécurisée sur Internet.
 
 ## Installation de l environnement embarque
 
