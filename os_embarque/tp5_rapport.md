@@ -27,7 +27,7 @@ Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams 
   - [python](https://en.wikipedia.org/wiki/Python_(programming_language)): Python est un langage de programation, de haut niveau et dynamique
   - [unzip]: C'est un outil qui nous permet de deziper des archives
   - [rsync](https://en.wikipedia.org/wiki/Rsync): rsync est un utilitaire permettant de transférer et de synchroniser efficacement des fichiers entre un ordinateur et un lecteur de stockage et entre des ordinateurs en réseau en comparant les temps de modification et les tailles des fichiers
-  - [wget]: GNU Wget est un logiciel libre permettant de récupérer des fichiers en utilisant HTTP, HTTPS, FTP et FTPS.
+  - [wget](https://www.gnu.org/software/wget/): GNU Wget est un logiciel libre permettant de récupérer des fichiers en utilisant HTTP, HTTPS, FTP et FTPS.
   - [libncurses-dev](https://packages.ubuntu.com/focal/libncurses-dev)
   - [libssl-dev](https://packages.ubuntu.com/bionic/libssl-dev): libssl-dev fait partie de l'implémentation par le projet OpenSSL des protocoles cryptographiques SSL et TLS pour une communication sécurisée sur Internet.
 
