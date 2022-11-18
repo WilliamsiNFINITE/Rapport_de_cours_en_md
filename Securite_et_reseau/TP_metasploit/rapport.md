@@ -1,4 +1,4 @@
-# Machines vullnérables et Metasploit
+# Machines vulnérables et Metasploit
 Ce rapport documente la réalisation du TP sur Metasploit
 
 Procédure : 
