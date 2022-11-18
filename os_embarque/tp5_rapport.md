@@ -33,6 +33,13 @@ Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams 
 
 ## Installation de l environnement embarque
 
+- Expliquer en quelques paragraphes à quoi correspond chacun des fichiers copiés :
+  - MLO, u-boot.img : Ces deux fichiers contituent le bootloader. Ce sont eux qui vont être utilisés à la place du bootloader habituel (XLoader) lorsque la carte va être démarrée depuis une carte microSD.
+  - zImage : Elle constitue l'image du noyau.
+  - uEnv.txt : Ce fichier contitue la séquence de démarrage.
+  - am335x-boneblack.dtb : Ce fichier est la device tree.
+
+
 - Vous pouvez lancer GTKterm. La configuration à mettre est différente de la précédente. Le port à utiliser
 est le ttyUSB0. Quelle différence y a-t-il entre ce port et le port utilisé précédemment (ttyACM0) ?
   - ttyUSB0 est le périphérique pour le premier convertisseur série USB. En utilisant un câble série USB, on  utilise un ttyUSBn pour nous connecter au port série du peripherique.
