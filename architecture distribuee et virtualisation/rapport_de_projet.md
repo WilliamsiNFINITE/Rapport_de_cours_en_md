@@ -42,6 +42,8 @@ On écrit un jeu de test pour s'assurer du compretement de notre application.
 
 ## TD 2
 
+- 8 Déployez un nouveau conteneur à partir de votre image publiée. Quelle commande utilisez-vous ?
+On utilise la commande [`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)
 
 
 
