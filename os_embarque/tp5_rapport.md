@@ -67,3 +67,7 @@ Remarque : Lorsque  nous sommes censé avoir un noyau en version 5.3.14, en prat
       }
     ```
   - Puis on redemare le daemon xinet pour prendre en compte nos modifications
+
+## Additionnel
+
+IP machine : 192.168.141.134
