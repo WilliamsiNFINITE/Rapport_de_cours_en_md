@@ -61,6 +61,10 @@ IMAGE          CREATED          CREATED BY                                      
 
 ![image](https://user-images.githubusercontent.com/91114817/203292872-a4b26568-6608-4878-b11f-7468bacd1d55.png)
 
+- 6 : 
+
+![image](https://user-images.githubusercontent.com/91114817/203299616-d8e2cba5-fc6d-4eea-b0f5-fa23f17de902.png)
+
 
 - 8 Déployez un nouveau conteneur à partir de votre image publiée. Quelle commande utilisez-vous ?
 On utilise la commande [`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)
