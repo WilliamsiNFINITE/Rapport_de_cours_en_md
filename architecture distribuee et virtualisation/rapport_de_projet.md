@@ -42,6 +42,26 @@ On écrit un jeu de test pour s'assurer du compretement de notre application.
 
 ## TD 2
 
+- 5 Analyse  
+
+```console
+PS C:\Users\Williams\Documents\GitHub\projet_architecture_distribuee_virtualisation> docker image history sysinfo-api:0.0.1
+IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
+4b0511d1ff4b   12 minutes ago   CMD ["npm" "run" "start"]                       0B        buildkit.dockerfile.v0
+<missing>      12 minutes ago   RUN /bin/sh -c npm run build # buildkit         33.2kB    buildkit.dockerfile.v0
+<missing>      12 minutes ago   RUN /bin/sh -c npm install # buildkit           511kB     buildkit.dockerfile.v0
+<missing>      12 minutes ago   COPY . . # buildkit                             118MB     buildkit.dockerfile.v0
+<missing>      12 minutes ago   USER node                                       0B        buildkit.dockerfile.v0
+<missing>      32 minutes ago   RUN /bin/sh -c addgroup -S node && adduser -…   4.68kB    buildkit.dockerfile.v0
+<missing>      32 minutes ago   RUN /bin/sh -c apk add npm # buildkit           81.9MB    buildkit.dockerfile.v0
+<missing>      32 minutes ago   WORKDIR /app                                    0B        buildkit.dockerfile.v0
+<missing>      3 months ago     /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>      3 months ago     /bin/sh -c #(nop) ADD file:f77e3f51f020890d2…   5.59MB
+```
+
+![image](https://user-images.githubusercontent.com/91114817/203292872-a4b26568-6608-4878-b11f-7468bacd1d55.png)
+
+
 - 8 Déployez un nouveau conteneur à partir de votre image publiée. Quelle commande utilisez-vous ?
 On utilise la commande [`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)
 
