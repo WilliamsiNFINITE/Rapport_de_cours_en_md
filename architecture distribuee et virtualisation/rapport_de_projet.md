@@ -33,8 +33,16 @@ Le fichier `package.json` contient le nom des dépendances du projets. Le fichie
 
 Difficulté : Appréhender les nouveaux outils. 
 
-```
+- 5 Testez le fonctionnement de votre application. Vous pouvez utiliser l’outil curl. À votre avis, pourquoi utilise-t-on ce formalisme pour construire l’URL de l’API ? 
+A mon avis cet URL désigne une API dont la version est la numéro 1 et qui sert à recevoir les informations du système. 
 
-```
+- 6 Écrivez un jeu de tests pour votre application avec Jest, et vérifiez son exécution. Pourquoi écrit-on un tel jeu de tests ?
+On écrit un jeu de test pour s'assurer du compretement de notre application. 
+
+
+## TD 2
+
+
+
 
 
