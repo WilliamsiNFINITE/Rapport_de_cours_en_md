@@ -36,8 +36,8 @@ Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams 
 - Expliquer en quelques paragraphes à quoi correspond chacun des fichiers copiés :
   - MLO, u-boot.img : Ces deux fichiers contituent le bootloader. Ce sont eux qui vont être utilisés à la place du bootloader habituel (XLoader) lorsque la carte va être démarrée depuis une carte microSD.
   - zImage : Elle constitue l'image du noyau.
-  - uEnv.txt : Ce fichier contitue la séquence de démarrage.
-  - am335x-boneblack.dtb : Ce fichier est la device tree.
+  - uEnv.txt : Ce fichier contitue la [séquence de démarrage](https://definir-tech.com/sequence-damorcage/#:~:text=La%20s%C3%A9quence%20de%20d%C3%A9marrage%20est,d'exploitation%20(OS).) (l'ordre dans lequel un ordinateur recherche les périphériques de stockage de données non volatiles contenant le code de programme pour charger le système d'exploitation).
+  - am335x-boneblack.dtb : Ce fichier est la [device tree](https://en.wikipedia.org/wiki/Devicetree) (structure de données décrivant les composants matériels d'un ordinateur particulier afin que le noyau du système d'exploitation puisse utiliser et gérer ces composants).
 
 
 - Vous pouvez lancer GTKterm. La configuration à mettre est différente de la précédente. Le port à utiliser
