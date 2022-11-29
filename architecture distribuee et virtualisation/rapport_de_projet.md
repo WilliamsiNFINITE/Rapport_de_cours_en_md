@@ -6,6 +6,9 @@ Voici le lien du repository du projet : https://github.com/WilliamsiNFINITE/proj
 ## Sommaire
 
 * [TD 1](#td-1)
+* [TD 2](#td-2)
+* [TD 3](#td-3)
+* [TD 4](#td-4)
 
 
 ## TD 1
@@ -70,5 +73,54 @@ IMAGE          CREATED          CREATED BY                                      
 On utilise la commande [`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)
 
 
+## TD 3
+
+Le workflow suivant a été écrit afin de satisfaire les demandes : activation lors d'un push sur la branche main, installations de node et des dépendances, lancement des tests et build de l'application.
+```yaml
+
+# workflow
+name: CI
+# event that triggers the workflow
+# on push branch main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    #tests
+    test:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '14'
+        - name: install dependencies
+          run: npm install
+        - name: run tests
+          run: npm run test
+
+    #build
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '14'
+        - name: install dependencies
+          run: npm install
+        - name: build app
+          run: npm run build
+
+
+```
+
+## TD 4
 
 
