@@ -121,6 +121,11 @@ jobs:
 
 ```
 
+On vérifie la bonne execution est le résultat du workflow en le plaçant dans un fichier .github/workflows et en allant dans l'onglet 'Actions' depuis notre repertoire github. 
+
+![image](https://user-images.githubusercontent.com/91114817/204484789-32635474-a1fd-4644-8535-37d07e4d5280.png)
+
+
 ## TD 4
 
 
