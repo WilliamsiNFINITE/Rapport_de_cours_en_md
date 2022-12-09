@@ -280,61 +280,95 @@ L'exploit CVE-2006-5702 me parit moins important que les deux autres car il a un
 
 ## Etude d'une autre machine vulnérable
 
-Je cherche l'adresse IP de la machine avec `sudo netdiscover`. Avec un ping je vérifie qu'elle a pour adresse IP 192.168.23.130.
+Je cherche l'adresse IP de la machine avec `sudo netdiscover`. Avec un ping je vérifie qu'elle a pour adresse IP 192.168.56.101.
+![image](https://user-images.githubusercontent.com/91114817/206672210-5d57dd91-92d9-43f4-90f7-50e1d6a90d4a.png)
 
-Pour connaitre les ports ouvert on utilise `nmap -A -sV  ` le résultat est le suivant
+
+Pour connaitre les ports ouvert on utilise `nmap -A -sV 192.168.56.101` le résultat est le suivant
 
 ```console
-Starting Nmap 7.92 ( https://nmap.org ) at 2022-12-09 08:39 GMT
-Nmap scan report for 192.168.23.130
-Host is up (0.00038s latency).
-Not shown: 998 closed tcp ports (conn-refused)
+
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-12-09 09:50 GMT
+Nmap scan report for 192.168.56.101
+Host is up (0.00050s latency).
+Not shown: 997 closed tcp ports (conn-refused)
 PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-r--r--    1 0        0         1093656 Feb 26  2021 trytofind.jpg
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.56.102
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
 | ssh-hostkey: 
-|   3072 7f:55:2d:63:a8:86:4f:90:1f:05:3c:c9:9f:40:b3:f2 (RSA)
-|   256 e9:71:11:ed:17:fa:48:06:a7:6b:5b:b6:0e:1b:11:b8 (ECDSA)
-|_  256 db:74:42:c4:37:c3:ae:a0:5c:30:26:cb:1a:ef:76:52 (ED25519)
-80/tcp open  http    Apache httpd 2.4.41
-|_http-server-header: Apache/2.4.41 (Ubuntu)
-| http-ls: Volume /
-| SIZE  TIME              FILENAME
-| 31K   2020-12-01 11:23  skeylogger
-|_
-|_http-title: Index of /
-Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+|   2048 1e:30:ce:72:81:e0:a2:3d:5c:28:88:8b:12:ac:fa:ac (RSA)
+|   256 01:9d:fa:fb:f2:06:37:c0:12:fc:01:8b:24:8f:53:ae (ECDSA)
+|_  256 2f:34:b3:d0:74:b4:7f:8d:17:d2:37:b1:2e:32:f7:eb (ED25519)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+|_http-title: MoneyBox
+|_http-server-header: Apache/2.4.38 (Debian)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 19.43 seconds
+Nmap done: 1 IP address (1 host up) scanned in 19.75 seconds
 
+ 
 ```
 
-On trouve donc les ports 22/tcp et 80/tcp qui sont ouverts pour des service ssh et http respectivement. 
+On trouve donc les ports 21 22 et 80 qui sont ouverts. 
 
 ## Etude de la machine moneybox port 80
 
-Voici le résultat de la commande `dirb http://192.168.23.130 -p http://192.168.23.130:80 `
+Voici le résultat de la commande `dirb http://192.168.56.101`
+
 ```console
+
+ -----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+dirb: option requires an argument -- 'p'
+
+(!) FATAL: Incorrect parameter
+                                           
+┌──(hoarauwi㉿kali)-[~]
+└─$ dirb http://192.168.56.101    
+
 -----------------
 DIRB v2.22    
 By The Dark Raver
 -----------------
 
-START_TIME: Fri Dec  9 08:52:16 2022
-URL_BASE: http://192.168.23.130/
+START_TIME: Fri Dec  9 09:52:56 2022
+URL_BASE: http://192.168.56.101/
 WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
-PROXY: http://192.168.23.130:80
 
 -----------------
 
-                                                             GENERATED WORDS: 4612
+                                           GENERATED WORDS: 4612               
 
----- Scanning URL: http://192.168.23.130/ ----
-                                                             + http://192.168.23.130/server-status (CODE:403|SIZE:279)   
+---- Scanning URL: http://192.168.56.101/ ----
+                                                                                      ==> DIRECTORY: http://192.168.56.101/blogs/
++ http://192.168.56.101/index.html (CODE:200|SIZE:621)
++ http://192.168.56.101/server-status (CODE:403|SIZE:279)
+                                          
+---- Entering directory: http://192.168.56.101/blogs/ ----
+                                           + http://192.168.56.101/blogs/index.html (CODE:200|SIZE:353)
                                                                                
 -----------------
-END_TIME: Fri Dec  9 08:52:20 2022
-DOWNLOADED: 4612 - FOUND: 1
+END_TIME: Fri Dec  9 09:53:03 2022
+DOWNLOADED: 9224 - FOUND: 3
 
 ```
 
@@ -342,6 +376,11 @@ DOWNLOADED: 4612 - FOUND: 1
 
 ## Etude de la machine moneybox port 21
 
+Après la connexion à la machine en utilisant lftp (car ftp ne marchait pas), j'ai téléchargé la photo suivante avec la commande `get`
+
+![image](https://user-images.githubusercontent.com/91114817/206677686-ae6d3d28-824a-4b51-89a9-b5d801dc0948.png)
+
+On utilise ensuite steghide 
 
 ## Etude de la machine moneybox port 22
 
