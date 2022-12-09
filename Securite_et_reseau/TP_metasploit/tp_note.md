@@ -278,7 +278,7 @@ Plus d'informations peuvent être consultées sur la [page dédiée de la vulné
 
 L'exploit CVE-2006-5702 me parit moins important que les deux autres car il a un classement seulement "normal" par rapport à l'exploit "Apache Tomcat Manager Application Deployer Authenticated Code Execution" vu dans le TP précédent et à l'exploit "CVE-2007-5423".
 
-## Etude de la machine moneybox port 80
+## Etude d'une autre machine vulnérable
 
 Je cherche l'adresse IP de la machine avec `sudo netdiscover`. Avec un ping je vérifie qu'elle a pour adresse IP 192.168.23.130.
 
@@ -307,11 +307,42 @@ Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 19.43 seconds
 
+```
+
+On trouve donc les ports 22/tcp et 80/tcp qui sont ouverts pour des service ssh et http respectivement. 
+
+## Etude de la machine moneybox port 80
+
+Voici le résultat de la commande `dirb http://192.168.23.130 -p http://192.168.23.130:80 `
+```console
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Dec  9 08:52:16 2022
+URL_BASE: http://192.168.23.130/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+PROXY: http://192.168.23.130:80
+
+-----------------
+
+                                                             GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.23.130/ ----
+                                                             + http://192.168.23.130/server-status (CODE:403|SIZE:279)   
+                                                                               
+-----------------
+END_TIME: Fri Dec  9 08:52:20 2022
+DOWNLOADED: 4612 - FOUND: 1
 
 ```
 
 
+
 ## Etude de la machine moneybox port 21
+
+
 ## Etude de la machine moneybox port 22
 
 
