@@ -280,9 +280,35 @@ L'exploit CVE-2006-5702 me parit moins important que les deux autres car il a un
 
 ## Etude de la machine moneybox port 80
 
-La machine a pour adresse IP 
+Je cherche l'adresse IP de la machine avec `sudo netdiscover`. Avec un ping je vérifie qu'elle a pour adresse IP 192.168.23.130.
 
-Pour connaitre les ports ouvert on utilise `nmap -A -sV  `
+Pour connaitre les ports ouvert on utilise `nmap -A -sV  ` le résultat est le suivant
+
+```console
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-12-09 08:39 GMT
+Nmap scan report for 192.168.23.130
+Host is up (0.00038s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 7f:55:2d:63:a8:86:4f:90:1f:05:3c:c9:9f:40:b3:f2 (RSA)
+|   256 e9:71:11:ed:17:fa:48:06:a7:6b:5b:b6:0e:1b:11:b8 (ECDSA)
+|_  256 db:74:42:c4:37:c3:ae:a0:5c:30:26:cb:1a:ef:76:52 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| 31K   2020-12-01 11:23  skeylogger
+|_
+|_http-title: Index of /
+Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.43 seconds
+
+
+```
 
 
 ## Etude de la machine moneybox port 21
