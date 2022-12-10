@@ -84,5 +84,25 @@ A présent nous allons utiliser le noyau en temps réel. Nous recommençons dons
 
 https://user-images.githubusercontent.com/91114817/206850515-bcf8b2eb-e671-42f8-a6b8-644fc7455637.mp4
 
-On remarque d'abord un espacement des mesures qui est plus important qu'avec le noyau précédent.
+On remarque d'abord un espacement des mesures qui est plus important qu'avec le noyau précédent. Néanmoinsvisiblement nous n'avons pas de changement. Nous avons donc décidé de faire une prise de mesure et de tracer des histogrammes.
+
+Pour la partie sans perturbation, nous obtenons les valeurs suivantes :
+
+![image](https://user-images.githubusercontent.com/91114817/206851112-16f0ce38-84ca-438a-9839-32be028d6ab0.png)
+
+Comme les valeurs maximales parraissaient incohérentent, nous les allons filtrer pour avoir les valeurs et l'histogramme ci-dessous.
+![image](https://user-images.githubusercontent.com/91114817/206851400-d194594c-3995-4d1b-8ff3-6b0a062c9570.png)
+![image](https://user-images.githubusercontent.com/91114817/206851417-57292d50-58dc-45be-9ed5-301be392f8a6.png)
+
+A présent nous allons perturber le système et observer son comportement à l'aide d'un histogramme.
+
+Les mesures ont également été filtrées.
+![image](https://user-images.githubusercontent.com/91114817/206851529-07485179-2d56-411b-902c-091c470320a6.png)
+![image](https://user-images.githubusercontent.com/91114817/206851578-ef50eb92-e290-41dc-b5bb-e0413eee1204.png)
+
+
+
+
+
+
 
