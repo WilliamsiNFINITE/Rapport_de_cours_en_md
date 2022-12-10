@@ -100,7 +100,8 @@ Les mesures ont également été filtrées.
 ![image](https://user-images.githubusercontent.com/91114817/206851529-07485179-2d56-411b-902c-091c470320a6.png)
 ![image](https://user-images.githubusercontent.com/91114817/206851578-ef50eb92-e290-41dc-b5bb-e0413eee1204.png)
 
-
+Finalement, nous obtenons deux histogrammes qui nous confortent dans l'idée qu'il n'y a pas de changement notable mise à part la différence entre les mesures de temps.
+Il est sûrement de faire une perturbation plus importante ou de changer le seuil de différence de mesure.
 
 
 
