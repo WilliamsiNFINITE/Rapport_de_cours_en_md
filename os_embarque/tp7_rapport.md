@@ -70,15 +70,19 @@ Après l'application du patch on obtient les options en temps réel
 
 ![image](https://user-images.githubusercontent.com/91114817/206841867-72d8814d-7aae-4a84-9ccc-3bfabcfbc192.png)
 
-Nous avons écrit le script ci-dessous afin de pouvoir mesurer le temps dans une boucle infinie et l'afficher dans le terminal 
 
-```C
+Dans un premier temps, nous avons utiliser le premier noyau. Nous avons écrit le script ci-dessous afin de pouvoir mesurer le temps dans une boucle infinie et l'afficher dans le terminal 
 
-```
+![image](https://user-images.githubusercontent.com/91114817/206849472-33ff3c40-59f9-47bf-aecf-d3b37550c79b.png)
 
 La carte fait des mesures qui sont espacées d'environ 11000 nanosecondes (le seuil a été placé à 400) sans aucune perturbation.
 
 https://user-images.githubusercontent.com/91114817/206849358-08a82826-5240-4466-8f77-2c8c3850dc15.mp4
 
 
+A présent nous allons utiliser le noyau en temps réel. Nous recommençons dons les étapes précédentes après changement de noyau
+
+https://user-images.githubusercontent.com/91114817/206850515-bcf8b2eb-e671-42f8-a6b8-644fc7455637.mp4
+
+On remarque d'abord un espacement des mesures qui est plus important qu'avec le noyau précédent.
 
