@@ -60,5 +60,25 @@ Ensuite nous avons perturbé la carte en lui envoyant des ping depuis notre VM. 
 
 ![image](https://user-images.githubusercontent.com/91114817/204567635-6fa23011-cc9d-41e3-950c-f5ce9804cd1b.png)
 
+On remarque une augmentation de l'écart-type ainsi que des valeurs maximales. On peut en conclure que les ping envoyés depuis notre VM ont été sources de perturbations pour la carte.
+
+## LINUX-RT
+
+Lorsque l'on utilise la commande ` patch -p1 < ./patch-5.2.21-rt15.patch --dry-run`, l'option `--dry-run` permet de tester la validité du patch sans pour autant appliquer le patch. Si la commande ne renvoit pas d'erreur, alors il est possible de patcher notre version de Linux en ré-exécutant la commande précédente sans l'option --dry-run. 
+
+Après l'application du patch on obtient les options en temps réel 
+
+![image](https://user-images.githubusercontent.com/91114817/206841867-72d8814d-7aae-4a84-9ccc-3bfabcfbc192.png)
+
+Nous avons écrit le script ci-dessous afin de pouvoir mesurer le temps dans une boucle infinie et l'afficher dans le terminal 
+
+```C
+
+```
+
+La carte fait des mesures qui sont espacées d'environ 11000 nanosecondes (le seuil a été placé à 400) sans aucune perturbation.
+
+https://user-images.githubusercontent.com/91114817/206849358-08a82826-5240-4466-8f77-2c8c3850dc15.mp4
+
 
 
