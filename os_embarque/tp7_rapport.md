@@ -1,11 +1,11 @@
 # Compte rendu du TP7 :  BUILDROOT
 
 Ce rapport documente la manière dont Thalul-De Marcelin et moi même, Williams HOARAU, avons réalisé le TP7.
+Il est recommandé de consulter ce rapport sur github à l'adresse : https://github.com/WilliamsiNFINITE/Rapport_de_cours_en_md/blob/main/os_embarque/tp7_rapport.md
 
 ## EXPLORATION DES DIFFERENTES OPTIONS DU NOYAU TEMPS REEL
 
 - Explorez le menu « General setup » puis « Preemption Model », à quoi correspond chacune des options ?
-  -  
 
 
 ```console
