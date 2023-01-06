@@ -34,6 +34,8 @@ savoir où on utilise sys_creat dans le code pour trouver le handler.
 
 les paramètres --> rdi, rci, 
 
+vcpu_loop = fonction intéressante.
+check case : UHYVE_PORT_CREAT
 
 ## Additionnel
 
