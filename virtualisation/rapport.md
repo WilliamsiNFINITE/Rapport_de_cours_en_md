@@ -27,7 +27,12 @@ En fouillant un peu on trouve un fichier syscall.h (voir image suivante) dans le
 
 ![image](https://user-images.githubusercontent.com/91114817/211047053-f9532698-1d9f-4b0f-8ad1-f6a505c22056.png)
 
+Check handler de système call. -trouver id de ftruncate pour les syscall.  
+/!\ uhyve_send -> commande à utiliser
+savoir où on utilise sys_creat dans le code pour trouver le handler. 
+/!\ path : utiliser virt_to_phys pour passer l'argument path. Parce que l'adresse n'est pas la même en physique et virtuel
 
+les paramètres --> rdi, rci, 
 
 
 ## Additionnel
